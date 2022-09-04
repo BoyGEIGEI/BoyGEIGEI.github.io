@@ -4,11 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="jsp, Boy阁阁的博客,HTML,CSS,JavaScript,java,linux等">
-    <meta name="description" content="jsp[TOC]
-1.什么是 jsp?jsp 的全称是 java server pages。Java 的服务器页面。
- jsp 的主要作用是代替 Servlet 程序回传 html 页面的数据。
- 因为 Servlet 程序回传 html ">
+    <meta name="keywords" content="2、EL表达式&amp;JSTL标签库, Boy阁阁的博客,HTML,CSS,JavaScript,java,linux等">
+    <meta name="description" content="EL 表达式1.EL 表达式1.1、什么是 EL 表达式，EL 表达式的作用?
+**EL 表达式的全称是：Expression Language。是表达式语言。 **
+EL 表达式的什么作用：EL 表达式主要是代替 jsp 页面中的表达式脚">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jsp | Boy阁阁的博客</title>
+    <title>2、EL表达式&amp;JSTL标签库 | Boy阁阁的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -274,12 +273,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jsp</h1>
+                    <h1 class="description center-align post-title">2、EL表达式&amp;JSTL标签库</h1>
                 </div>
             </div>
         </div>
@@ -303,8 +302,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java-css-jsp/">
-                                <span class="chip bg-color">java css jsp</span>
+                            <a href="/tags/EL-JSTL/">
+                                <span class="chip bg-color">EL  JSTL</span>
                             </a>
                         
                     </div>
@@ -315,8 +314,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/javaweb/" class="post-category">
-                                javaweb
+                            <a href="/categories/JavaWeb/" class="post-category">
+                                JavaWeb
                             </a>
                         
                     </div>
@@ -335,7 +334,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-03
+                    2022-09-04
                 </div>
                 
 
@@ -349,7 +348,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    17 分
                 </div>
                 
 
@@ -369,185 +368,199 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="jsp"><a href="#jsp" class="headerlink" title="jsp"></a>jsp</h1><p>[TOC]</p>
-<h2 id="1-什么是-jsp"><a href="#1-什么是-jsp" class="headerlink" title="1.什么是 jsp?"></a>1.什么是 jsp?</h2><p>jsp 的全称是 java server pages。Java 的服务器页面。</p>
-<p> jsp 的主要作用是代替 Servlet 程序回传 html 页面的数据。</p>
-<p> 因为 Servlet 程序回传 html 页面数据是一件非常繁锁的事情。开发成本和维护成本都极高</p>
-<p>Servlet 回传 html 页面数据的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PringHtml</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException,</span><br><span class="line">	IOException &#123;</span><br><span class="line">		<span class="comment">// 通过响应的回传流回传 html 页面数据</span></span><br><span class="line">		resp.setContentType(<span class="string">&quot;text/html; charset=UTF-8&quot;</span>);</span><br><span class="line">		<span class="type">PrintWriter</span> <span class="variable">writer</span> <span class="operator">=</span> resp.getWriter();</span><br><span class="line">		writer.write(<span class="string">&quot;&lt;!DOCTYPE html&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot; &lt;html lang=\&quot;en\&quot;&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot; &lt;head&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot; &lt;meta charset=\&quot;UTF-8\&quot;&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot; &lt;title&gt;Title&lt;/title&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot; &lt;/head&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot; &lt;body&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot; 这是 html 页面数据 \r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot; &lt;/body&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot;&lt;/html&gt;\r\n&quot;</span>);</span><br><span class="line">		writer.write(<span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <h1 id="EL-表达式"><a href="#EL-表达式" class="headerlink" title="EL 表达式"></a>EL 表达式</h1><h2 id="1-EL-表达式"><a href="#1-EL-表达式" class="headerlink" title="1.EL 表达式"></a>1.EL 表达式</h2><h3 id="1-1、什么是-EL-表达式，EL-表达式的作用"><a href="#1-1、什么是-EL-表达式，EL-表达式的作用" class="headerlink" title="1.1、什么是 EL 表达式，EL 表达式的作用?"></a>1.1、什么是 EL 表达式，EL 表达式的作用?</h3><blockquote>
+<p>**EL 表达式的全称是：Expression Language。是表达式语言。 **</p>
+<p><strong>EL 表达式的什么作用：EL 表达式主要是代替 jsp 页面中的表达式脚本在 jsp 页面中进行数据的输出。</strong></p>
+<p><strong>因为 EL 表达式在输出数据的时候，要比 jsp 的表达式脚本要简洁很多。</strong></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">&lt;%</span><br><span class="line">	request.setAttribute(&quot;key&quot;,&quot;值&quot;);</span><br><span class="line">%&gt;</span><br><span class="line">	表达式脚本输出 key 的值是：</span><br><span class="line">	&lt;%=request.getAttribute(&quot;key1&quot;)==null?&quot;&quot;:request.getAttribute(&quot;key1&quot;)%&gt;<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">	EL 表达式输出 key 的值是：$&#123;key1&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>jsp 回传一个简单 html 页面的代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">这是html页面</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>EL 表达式的格式是：**${表达式}** </p>
+<p>EL 表达式在输出 null 值的时候，输出的是空串。jsp 表达式脚本输出 null 值的时候，输出的是 null 字符串。</p>
+</blockquote>
+<h3 id="1-2、EL-表达式搜索域数据的顺序"><a href="#1-2、EL-表达式搜索域数据的顺序" class="headerlink" title="1.2、EL 表达式搜索域数据的顺序"></a>1.2、EL 表达式搜索域数据的顺序</h3><p>EL 表达式主要是在 jsp 页面中输出数据。</p>
+<p> 主要是输出域对象中的数据。</p>
+<p>当四个域中都有相同的 key 的数据的时候，EL 表达式会按照四个域的从小到大的顺序去进行搜索，找到就输出。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">&lt;%</span><br><span class="line">    //往四个域中都保存了相同的 key 的数据。</span><br><span class="line">    request.setAttribute(&quot;key&quot;, &quot;request&quot;);</span><br><span class="line">    session.setAttribute(&quot;key&quot;, &quot;session&quot;);</span><br><span class="line">    application.setAttribute(&quot;key&quot;, &quot;application&quot;);</span><br><span class="line">    pageContext.setAttribute(&quot;key&quot;, &quot;pageContext&quot;);</span><br><span class="line">%&gt;</span><br><span class="line">$&#123; key &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>jsp 的小结：</p>
-<p>2、jsp 如何访问：</p>
-<p>​		 jsp 页面和 html 页面一样，都是存放在 web 目录下。访问也跟访问 html 页面一样。 </p>
-<p>​			比如： 在 web 目录下有如下的文件： </p>
-<p>​				web 目录</p>
-<p>​					 a.html 页面 访问地址是 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;&gt;&gt;&gt;&gt; <a href="http://ip:port/工程路径/a.html">http://ip:port/工程路径/a.html</a> </p>
-<pre><code>                 b.jsp 页面 访问地址是 =======&gt;&gt;&gt;&gt;&gt;&gt; http://ip:port/工程路径/b.jsp
-</code></pre>
-<h2 id="2-jsp-的本质是什么。"><a href="#2-jsp-的本质是什么。" class="headerlink" title="2.jsp 的本质是什么。"></a>2.jsp 的本质是什么。</h2><p>jsp 页面本质上是一个 Servlet 程序。</p>
-<p>当我们第一次访问 jsp 页面的时候。Tomcat 服务器会帮我们把 jsp 页面翻译成为一个 java 源文件。并且对它进行编译成 为.class 字节码程序。我们打开 java 源文件不难发现其里面的内容是：</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423154401462.png" alt="image-20220423154401462"></p>
-<p>我们跟踪原代码发现，HttpJspBase 类。它直接地继承了 HttpServlet 类。也就是说。jsp 翻译出来的 java 类，它间接了继 承了 HttpServlet 类。也就是说，翻译出来的是一个 Servlet 程序</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423154424305.png" alt="image-20220423154424305"></p>
-<p><strong>总结：通过翻译的 java 源代码我们就可以得到结果：jsp 就是 Servlet 程序。</strong></p>
-<h2 id="3-jsp-的三种语法"><a href="#3-jsp-的三种语法" class="headerlink" title="3.jsp 的三种语法"></a>3.jsp 的三种语法</h2><h3 id="3-1、jsp-头部的-page-指令"><a href="#3-1、jsp-头部的-page-指令" class="headerlink" title="3.1、jsp 头部的 page 指令"></a>3.1、jsp 头部的 page 指令</h3><p>jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行为。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3、EL-表达式输出-Bean-的普通属性，数组属性"><a href="#1-3、EL-表达式输出-Bean-的普通属性，数组属性" class="headerlink" title="1.3、EL 表达式输出 Bean 的普通属性，数组属性"></a>1.3、EL 表达式输出 Bean 的普通属性，数组属性</h3><p>需求——输出 Person 类中普通属性，数组属性。list 集合属性和 map 集合属性。</p>
+<p>Person类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span>  String[] phones;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; cities;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,Object&gt; map;</span><br></pre></td></tr></table></figure>
 
-<p>i. <strong>language</strong> 属性 															表示 jsp 翻译后是什么语言文件。暂时只支持 java。 </p>
-<p>ii. <strong>contentType</strong> 属性 														表示 jsp 返回的数据类型是什么。也是源码中 response.setContentType()参数值 </p>
-<p>iii. <strong>pageEncoding</strong> 属性 													表示当前 jsp 页面文件本身的字符集。 </p>
-<p>iv. <strong>import</strong> 属性 																跟 java 源代码中一样。用于导包，导类。</p>
-<p> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;两个属性是给 out 输出流使用&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; </p>
-<p>v. <strong>autoFlush</strong> 属性 															设置当 out 输出流缓冲区满了之后，是否自动刷新冲级区。默认值是 true。 </p>
-<p>vi. <strong>buffer</strong> 属性 																	设置 out 缓冲区的大小。默认是 8kb</p>
-<p>缓冲区溢出错误：</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423154841371.png" alt="image-20220423154841371"></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;两个属性是给 out 输出流使用&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p> vii. <strong>errorPage</strong> 属性 													设置当 jsp 页面运行时出错，自动跳转去的错误页面路径。</p>
-<!--
-errorPage 表示错误后自动跳转去的路径 <br/>
-这个路径一般都是以斜杠打头，它表示请求地址为 http://ip:port/工程路径   映射到代码的 Web 目录 -->
+<p>输出的代码：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        Person person=<span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">        person.setAge(<span class="number">18</span>);</span><br><span class="line">        person.setPhones(<span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;12345678&quot;</span>,<span class="string">&quot;987654321&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; cities=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        cities.add(<span class="string">&quot;北京&quot;</span>);</span><br><span class="line">        cities.add(<span class="string">&quot;上海&quot;</span>);</span><br><span class="line">        cities.add(<span class="string">&quot;广州&quot;</span>);</span><br><span class="line">        person.setCities(cities);</span><br><span class="line"></span><br><span class="line">        Map&lt;String,Object&gt; map=<span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;value1&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;key2&quot;</span>,<span class="string">&quot;value2&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;key3&quot;</span>,<span class="string">&quot;value3&quot;</span>);</span><br><span class="line">        person.setMap(map);</span><br><span class="line"></span><br><span class="line">        pageContext.setAttribute(<span class="string">&quot;p&quot;</span>,person);</span><br><span class="line">    %&gt;</span><br><span class="line"></span><br><span class="line">输出Person:$&#123;p&#125;&lt;br/&gt;</span><br><span class="line">输出Person的age:$&#123;p.age&#125;&lt;br&gt;</span><br><span class="line">输出Person的phones数组的属性值:$&#123;p.phones[<span class="number">0</span>]&#125;&lt;br&gt;</span><br><span class="line">输出Person的list数组中的某个的属性值:$&#123;p.cities[<span class="number">2</span>]&#125;&lt;br&gt;</span><br><span class="line">    输出Person的map数组的属性值:$&#123;p.map&#125;&lt;br&gt;</span><br><span class="line">    输出Person的map数组的某个key属性值:$&#123;p.map.key1&#125;&lt;br&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/</span><br></pre></td></tr></table></figure>
 
-<p>viii. <strong>isErrorPage</strong> 属性 										设置当前 jsp 页面是否是错误信息页面。默认是 false。如果是 true 可以 获取异常信息。</p>
-<p> ix. <strong>session</strong> 属性 												设置访问当前 jsp 页面，是否会创建 HttpSession 对象。默认是 true。 </p>
-<p>x. <strong>extends</strong> 属性												 设置 jsp 翻译出来的 java 类默认继承谁</p>
-<h3 id="3-2、jsp-中的常用脚本"><a href="#3-2、jsp-中的常用脚本" class="headerlink" title="3.2、jsp 中的常用脚本"></a>3.2、jsp 中的常用脚本</h3><h4 id="声明脚本-极少使用"><a href="#声明脚本-极少使用" class="headerlink" title="声明脚本(极少使用)"></a>声明脚本(极少使用)</h4><p>声明脚本的格式是： &lt;%! 声明 java 代码 %&gt; </p>
-<p>作用：可以给 jsp 翻译出来的 java 类定义属性和方法甚至是静态代码块。内部类等。</p>
-<p> 练习：</p>
-<p> 1、声明类属性 </p>
-<p>2、声明 static 静态代码块 </p>
-<p>3、声明类方法 </p>
-<p>4、声明内部类</p>
-<p>代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page import=&quot;java.util.Map&quot; %&gt;</span><br><span class="line">&lt;%@ page import=&quot;java.util.HashMap&quot; %&gt;</span><br><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">&lt;%--1、声明类属性--%&gt;</span><br><span class="line">&lt;%!</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String name;</span><br><span class="line">    private static Map&lt;String,Object&gt; map;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%--2、声明 static 静态代码块--%&gt;</span><br><span class="line">&lt;%!</span><br><span class="line">    static &#123;</span><br><span class="line">        map = new HashMap&lt;String,Object&gt;();</span><br><span class="line">        map.put(&quot;key1&quot;, &quot;value1&quot;);</span><br><span class="line">        map.put(&quot;key2&quot;, &quot;value2&quot;);</span><br><span class="line">        map.put(&quot;key3&quot;, &quot;value3&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%--3、声明类方法--%&gt;</span><br><span class="line">&lt;%!</span><br><span class="line">    public int abc()&#123;</span><br><span class="line">        return 12;</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%--4、声明内部类--%&gt;</span><br><span class="line">&lt;%!</span><br><span class="line">    public static class A &#123;</span><br><span class="line">        private Integer id = 12;</span><br><span class="line">        private String abc = &quot;abc&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>声明脚本代码翻译对照：</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423155632394.png" alt="image-20220423155632394"></p>
-<h4 id="表达式脚本（常用）"><a href="#表达式脚本（常用）" class="headerlink" title="表达式脚本（常用）"></a>表达式脚本（常用）</h4><p>表达式脚本的格式是：&lt;%&#x3D;表达式%&gt; </p>
-<p>表达式脚本的作用是：的 jsp 页面上输出数据。 </p>
-<p>表达式脚本的特点：</p>
-<p> 1、所有的表达式脚本都会被翻译到_jspService() 方法中 _</p>
-<p> 2、表达式脚本都会被翻译成为 out.print()输出到页面上 _</p>
-<p>_3、由于表达式脚本翻译的内容都在_jspService() 方法中,所以_jspService()方法中的对象都可以直接使用。 </p>
-<p>4、表达式脚本中的表达式不能以分号结束。 </p>
-<p>练习： </p>
-<ol>
-<li><p>输出整型 </p>
+
+<p><strong>结果：</strong></p>
+<p><img src="/../imgs/title/image-20220904211732949.png" alt="image-20220904211732949"></p>
+<h3 id="1-4、EL-表达式——运算"><a href="#1-4、EL-表达式——运算" class="headerlink" title="1.4、EL 表达式——运算"></a>1.4、EL 表达式——运算</h3><p><strong>语法：${ 运算表达式 }</strong> </p>
+<p> 运算表达式和java语句相似</p>
+<p><strong>1）关系运算</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">关系运算符</th>
+<th>说 明</th>
+<th>说 明 范 例</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&#x3D;&#x3D; 或 eq</td>
+<td>等于</td>
+<td>${ 5 &#x3D;&#x3D; 5 } 或 ${ 5 eq 5 }</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">!&#x3D; 或 ne</td>
+<td>不等于</td>
+<td>${ 5 !&#x3D;5 } 或 ${ 5 ne 5 }</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">&lt; 或 lt</td>
+<td>小于</td>
+<td>${ 3 &lt; 5 } 或 ${ 3 lt 5 }</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">&gt; 或 gt</td>
+<td>大于</td>
+<td>${ 2 &gt; 10 } 或 ${ 2 gt 10 }</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">&lt;&#x3D; 或 le</td>
+<td>小于等于</td>
+<td>${ 5 &lt;&#x3D; 12 } 或 ${ 5 le 12 }</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">&gt;&#x3D; 或 ge</td>
+<td>大于等于</td>
+<td>${ 3 &gt;&#x3D; 5 } 或 ${ 3 ge 5 }</td>
+<td align="center">false</td>
+</tr>
+</tbody></table>
+<p><img src="/../imgs/title/image-20220904211744350.png" alt="image-20220904211744350"></p>
+<p><strong>3）empty 运算</strong></p>
+<blockquote>
+<p>empty 运算可以判断一个数据是否为空，如果为空，则输出 true,不为空输出 false。 </p>
+<p>以下几种情况为空： </p>
+<p>1、值为 null 值的时候，为空 </p>
+<p>2、值为空串的时候，为空 </p>
+<p>3、值是 Object 类型数组，长度为零的时候 </p>
+<p>4、list 集合，元素个数为零</p>
+<p>5、map 集合，元素个数为零</p>
+</blockquote>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line"><span class="comment">// 1、值为 null 值的时候，为空</span></span><br><span class="line">request.setAttribute(<span class="string">&quot;emptyNull&quot;</span>, <span class="literal">null</span>);</span><br><span class="line"><span class="comment">// 2、值为空串的时候，为空</span></span><br><span class="line">request.setAttribute(<span class="string">&quot;emptyStr&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="comment">// 3、值是 Object 类型数组，长度为零的时候</span></span><br><span class="line">request.setAttribute(<span class="string">&quot;emptyArr&quot;</span>, <span class="keyword">new</span> <span class="title class_">Object</span>[]&#123;&#125;);</span><br><span class="line"><span class="comment">// 4、list 集合，元素个数为零</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="comment">// list.add(&quot;abc&quot;);</span></span><br><span class="line">request.setAttribute(<span class="string">&quot;emptyList&quot;</span>, list);</span><br><span class="line"><span class="comment">// 5、map 集合，元素个数为零</span></span><br><span class="line">Map&lt;String,Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, Object&gt;();</span><br><span class="line"><span class="comment">// map.put(&quot;key1&quot;, &quot;value1&quot;);</span></span><br><span class="line">request.setAttribute(<span class="string">&quot;emptyMap&quot;</span>, map);</span><br><span class="line">%&gt;</span><br><span class="line">$&#123; empty emptyNull &#125; &lt;br/&gt;</span><br><span class="line">$&#123; empty emptyStr &#125; &lt;br/&gt;</span><br><span class="line">$&#123; empty emptyArr &#125; &lt;br/&gt;</span><br><span class="line">$&#123; empty emptyList &#125; &lt;br/&gt;</span><br><span class="line">$&#123; empty emptyMap &#125; &lt;br/&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../imgs/title/image-20220904211756173.png" alt="image-20220904211756173"></p>
+<p><strong>4)、三元运算</strong> </p>
+<p>表达式 1？表达式 2：表达式 3 如果表达式 1 的值为真，返回表达式 2 的值，如果表达式 1 的值为假，返回表达式 3 的值。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123; <span class="number">12</span> != <span class="number">12</span> ? <span class="string">&quot;你帅呆了&quot;</span>:<span class="string">&quot;你又骗人啦&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5)“.”点运算 和 [] 中括号运算符</strong></p>
+<p><strong>.</strong>  点运算，可以输出 Bean 对象中某个属性的值。</p>
+<p> **[]**中括号运算，可以输出有序集合中某个元素的值。 </p>
+<p>并且[]中括号运算，还可以输出 map 集合中 key 里含有特殊字符的 key 的值。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">Map&lt;String,Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, Object&gt;();</span><br><span class="line">map.put(<span class="string">&quot;a.a.a&quot;</span>, <span class="string">&quot;aaaValue&quot;</span>);</span><br><span class="line">map.put(<span class="string">&quot;b+b+b&quot;</span>, <span class="string">&quot;bbbValue&quot;</span>);</span><br><span class="line">map.put(<span class="string">&quot;c-c-c&quot;</span>, <span class="string">&quot;cccValue&quot;</span>);</span><br><span class="line">request.setAttribute(<span class="string">&quot;map&quot;</span>, map);</span><br><span class="line">%&gt;</span><br><span class="line">$&#123; map[<span class="string">&#x27;a.a.a&#x27;</span>] &#125; &lt;br&gt;</span><br><span class="line">$&#123; map[<span class="string">&quot;b+b+b&quot;</span>] &#125; &lt;br&gt;</span><br><span class="line">$&#123; map[<span class="string">&#x27;c-c-c&#x27;</span>] &#125; &lt;br&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5、EL-表达式的-11-个隐含对象"><a href="#1-5、EL-表达式的-11-个隐含对象" class="headerlink" title="1.5、EL 表达式的 11 个隐含对象"></a>1.5、EL 表达式的 11 个隐含对象</h3><p>EL 个达式中 11 个隐含对象，是 EL 表达式中自己定义的，可以直接使用。</p>
+<p><img src="/../imgs/title/image-20220904211809069.png" alt="image-20220904211809069"></p>
+<h4 id="1-5-1、EL-获取四个特定域中的属性"><a href="#1-5-1、EL-获取四个特定域中的属性" class="headerlink" title="1.5.1、EL 获取四个特定域中的属性"></a>1.5.1、<strong>EL 获取四个特定域中的属性</strong></h4><p><img src="/../imgs/title/image-20220904211816929.png" alt="image-20220904211816929"></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    pageContext.setAttribute(<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;pageContext1&quot;</span>);</span><br><span class="line">    request.setAttribute(<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;request&quot;</span>);</span><br><span class="line">    session.setAttribute(<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;session1&quot;</span>);</span><br><span class="line">    application.setAttribute(<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;application1&quot;</span>);</span><br><span class="line">%&gt;</span><br><span class="line">$&#123;pageScope.key1&#125;&lt;br&gt;</span><br><span class="line">$&#123;requestScope.key1&#125;&lt;br&gt;</span><br><span class="line">$&#123;sessionScope.key1&#125;&lt;br&gt;</span><br><span class="line">$&#123;applicationScope.key1&#125;&lt;br&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<p><img src="/../imgs/title/image-20220904211825062.png" alt="image-20220904211825062"></p>
+<h4 id="1-5-2、pageContext-对象的使用"><a href="#1-5-2、pageContext-对象的使用" class="headerlink" title="1.5.2、pageContext 对象的使用"></a>1.5.2、pageContext 对象的使用</h4><ol>
+<li><p>协议：</p>
 </li>
-<li><p>输出浮点型 </p>
+<li><p>服务器 ip： </p>
 </li>
-<li><p>输出字符串 </p>
+<li><p>服务器端口： </p>
 </li>
-<li><p>输出对象</p>
+<li><p>获取工程路径： </p>
+</li>
+<li><p>获取请求方法： </p>
+</li>
+<li><p>获取客户端 ip 地址： </p>
+</li>
+<li><p>获取会话的 id 编号：</p>
 </li>
 </ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%=12 %&gt; </span><br><span class="line">&lt;%=12.12 %&gt; </span><br><span class="line">&lt;%=&quot;我是字符串&quot; %&gt; </span><br><span class="line">&lt;%=request.getParameter(&quot;username&quot;)%&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;%--</span><br><span class="line">request.getScheme() 它可以获取请求的协议</span><br><span class="line">request.getServerName() 获取请求的服务器 ip 或域名</span><br><span class="line">request.getServerPort() 获取请求的服务器端口号</span><br><span class="line">getContextPath() 获取当前工程路径</span><br><span class="line">request.getMethod() 获取请求的方式（GET 或 POST）</span><br><span class="line">request.getRemoteHost() 获取客户端的 ip 地址</span><br><span class="line">session.getId() 获取会话的唯一标识</span><br><span class="line">--%&gt;</span><br><span class="line">    <span class="comment">//企业开发中一般用setAttribute来获取</span></span><br><span class="line">    &lt;%</span><br><span class="line">        pageContext.setAttribute(<span class="string">&quot;req&quot;</span>, request);</span><br><span class="line">    %&gt;</span><br><span class="line">    </span><br><span class="line">    <span class="number">1.</span>协议： $&#123; req.scheme &#125;&lt;br&gt;</span><br><span class="line">    <span class="number">2.</span>服务器 ip：$&#123; pageContext.request.serverName &#125;&lt;br&gt;</span><br><span class="line">    <span class="number">3.</span>服务器端口：$&#123; pageContext.request.serverPort &#125;&lt;br&gt;</span><br><span class="line">    <span class="number">4.</span>获取工程路径：$&#123; pageContext.request.contextPath &#125;&lt;br&gt;</span><br><span class="line">    <span class="number">5.</span>获取请求方法：$&#123; pageContext.request.method &#125;&lt;br&gt;</span><br><span class="line">    <span class="number">6.</span>获取客户端 ip 地址：$&#123; pageContext.request.remoteHost &#125;&lt;br&gt;</span><br><span class="line">    <span class="number">7.</span>获取会话的 id 编号：$&#123; pageContext.session.id &#125;&lt;br&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423161026346.png" alt="image-20220423161026346"></p>
-<h4 id="代码脚本"><a href="#代码脚本" class="headerlink" title="代码脚本"></a>代码脚本</h4><p>代码脚本的格式是：</p>
-<p> &lt;% </p>
-<p>​		java 语句 </p>
-<p>%&gt; </p>
-<p>代码脚本的作用是：可以在 jsp 页面中，编写我们自己需要的功能（写的是 java 语句）。</p>
-<p> 代码脚本的特点是：</p>
-<p> 1、代码脚本翻译之后都在_jspService 方法中 _</p>
-<p><em>2、代码脚本由于翻译到_jspService()方法中，所以在_jspService()方法中的现有对象都可以直接使用。</em></p>
-<p> 3、还可以由多个代码脚本块组合完成一个完整的 java 语句。</p>
-<p> 4、代码脚本还可以和表达式脚本一起组合使用，在 jsp 页面上输出数据 </p>
-<p>练习： </p>
-<ol>
-<li><p>代码脚本—-if 语句 </p>
-</li>
-<li><p>代码脚本—-for 循环语句 </p>
-</li>
-<li><ol start="3">
-<li>翻译后 java 文件中_jspService 方法内的代码都可以写</li>
-</ol>
-<p><strong>示例代码：</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">&lt;%--练习：--%&gt;</span><br><span class="line">&lt;%--1.代码脚本----if 语句--%&gt;</span><br><span class="line">&lt;%int i = 13 ;</span><br><span class="line">    if (i == 12) &#123;</span><br><span class="line">%&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好帅<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&lt;%</span><br><span class="line">&#125; else &#123;</span><br><span class="line">%&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>你又骗人了！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&lt;%</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&lt;%--2.代码脚本----for 循环语句--%&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span>&gt;</span></span><br><span class="line">    &lt;%</span><br><span class="line">        for (int j = 0; j &lt; 10; j++) &#123;</span><br><span class="line">    %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>第 &lt;%=j + 1%&gt;行<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    &lt;%</span><br><span class="line">        &#125;</span><br><span class="line">    %&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">&lt;%--3.翻译后 java 文件中_jspService 方法内的代码都可以写--%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    String username = request.getParameter(&quot;username&quot;);</span><br><span class="line">    System.out.println(&quot;用户名的请求参数值是：&quot; + username);</span><br><span class="line">%&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220425201310009.png" alt="image-20220425201310009"></p>
+<h4 id="1-5-3、EL-表达式其他隐含对象的使用"><a href="#1-5-3、EL-表达式其他隐含对象的使用" class="headerlink" title="1.5.3、EL 表达式其他隐含对象的使用"></a>1.5.3、EL 表达式其他隐含对象的使用</h4><p>param						 Map 					它可以获取请求参数的值 </p>
+<p>paramValues			 Map 					它也可以获取请求参数的值，获取多个值的时候使用。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输出请求参数 username 的值：$&#123; param.username &#125; &lt;br&gt;</span><br><span class="line">输出请求参数 password 的值：$&#123; param.password &#125; &lt;br&gt;</span><br><span class="line">输出请求参数 username 的值：$&#123; paramValues.username[<span class="number">0</span>] &#125; &lt;br&gt;</span><br><span class="line">输出请求参数 hobby 的值：$&#123; paramValues.hobby[<span class="number">0</span>] &#125; &lt;br&gt;</span><br><span class="line">输出请求参数 hobby 的值：$&#123; paramValues.hobby[<span class="number">1</span>] &#125; &lt;br&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423161247346.png" alt="image-20220423161247346"></p>
-</li>
-</ol>
-<h3 id="3-3、jsp-中的三种注释"><a href="#3-3、jsp-中的三种注释" class="headerlink" title="3.3、jsp 中的三种注释"></a>3.3、jsp 中的三种注释</h3><h4 id="html-注释"><a href="#html-注释" class="headerlink" title="html 注释"></a>html 注释</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这是 html 注释 -&gt;</span></span><br></pre></td></tr></table></figure>
+<p>header						Map						 它可以获取请求头的信息 </p>
+<p>headerValues 			Map 						它可以获取请求头的信息，它可以获取多个值的情况</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输出请求头【User-Agent】的值：$&#123; header[<span class="string">&#x27;User-Agent&#x27;</span>] &#125; </span><br><span class="line"> 输出请求头【Connection】的值：$&#123; header.Connection &#125; </span><br><span class="line"> 输出请求头【User-Agent】的值：$&#123; headerValues[<span class="string">&#x27;User-Agent&#x27;</span>][<span class="number">0</span>] &#125; </span><br></pre></td></tr></table></figure>
 
-<p>html 注释会被翻译到 java 源代码中。在_jspService 方法里，以 out.writer 输出到客户</p>
-<h4 id="java-注释"><a href="#java-注释" class="headerlink" title="java 注释"></a>java 注释</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;% </span><br><span class="line">	// 单行 java 注释 </span><br><span class="line">	/* 多行 java 注释 */ </span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+<p>cookie							 Map 							它可以获取当前请求的 Cookie 信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">获取 Cookie 的名称：$&#123; cookie.JSESSIONID.name &#125; </span><br><span class="line"> 获取 Cookie 的值：$&#123; cookie.JSESSIONID.value &#125; </span><br></pre></td></tr></table></figure>
 
-<p>java 注释会被翻译到 java 源代码中。</p>
-<h4 id="jsp-注释"><a href="#jsp-注释" class="headerlink" title="jsp 注释"></a>jsp 注释</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- 这是 jsp 注释 --%&gt;</span><br></pre></td></tr></table></figure>
-
-<p> jsp 注释可以注掉，jsp 页面中所有代码</p>
-<h2 id="4-jsp-九大内置对象"><a href="#4-jsp-九大内置对象" class="headerlink" title="4.jsp 九大内置对象"></a>4.jsp 九大内置对象</h2><p>jsp 中的内置对象，是指 Tomcat 在翻译 jsp 页面成为 Servlet 源代码后，内部提供的九大对象，叫内置对象。</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423142118629.png"></p>
-<h2 id="5-jsp-四大域对象"><a href="#5-jsp-四大域对象" class="headerlink" title="5.jsp 四大域对象"></a>5.jsp 四大域对象</h2><p>四个域对象分别是：</p>
-<p> <strong>pageContext</strong> (PageContextImpl 类) 					当前 jsp 页面范围内有效</p>
-<p> <strong>request</strong> (HttpServletRequest 类)、					 一次请求内有效 </p>
-<p><strong>session</strong> (HttpSession 类)、 								一个会话范围内有效（打开浏览器访问服务器，直到关闭浏览器） </p>
-<p><strong>application</strong> (ServletContext 类) 						整个 web 工程范围内都有效（只要 web 工程不停止，数据都在） </p>
-<p>域对象是可以像 Map 一样存取数据的对象。四个域对象功能一样。不同的是它们对数据的存取范围。 </p>
-<p>虽然四个域对象都可以存取数据。在使用上它们是有优先顺序的。</p>
-<p> 四个域在使用的时候，优先顺序分别是，他们从小到大的范围的顺序。 </p>
-<p><strong>pageContext &#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;&gt; request &#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;&gt; session &#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;&gt; application</strong></p>
-<p>scope.jsp 页面</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>scope.jsp 页面<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&lt;%</span><br><span class="line">    // 往四个域中都分别保存了数据</span><br><span class="line">    pageContext.setAttribute(&quot;key&quot;, &quot;pageContext&quot;);</span><br><span class="line">    request.setAttribute(&quot;key&quot;, &quot;request&quot;);</span><br><span class="line">    session.setAttribute(&quot;key&quot;, &quot;session&quot;);</span><br><span class="line">    application.setAttribute(&quot;key&quot;, &quot;application&quot;);</span><br><span class="line">%&gt;</span><br><span class="line">    pageContext 域是否有值：&lt;%=pageContext.getAttribute(&quot;key&quot;)%&gt; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    request 域是否有值：&lt;%=request.getAttribute(&quot;key&quot;)%&gt; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    session 域是否有值：&lt;%=session.getAttribute(&quot;key&quot;)%&gt; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    application 域是否有值：&lt;%=application.getAttribute(&quot;key&quot;)%&gt; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&lt;%</span><br><span class="line">    request.getRequestDispatcher(&quot;/scope2.jsp&quot;).forward(request,response);</span><br><span class="line">%&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>scope2.jsp 页面:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>scope2.jsp 页面<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    pageContext 域是否有值：&lt;%=pageContext.getAttribute(&quot;key&quot;)%&gt; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    request 域是否有值：&lt;%=request.getAttribute(&quot;key&quot;)%&gt; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    session 域是否有值：&lt;%=session.getAttribute(&quot;key&quot;)%&gt; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    application 域是否有值：&lt;%=application.getAttribute(&quot;key&quot;)%&gt; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423162053181.png" alt="image-20220423162053181"></p>
-<h2 id="6-jsp-中的-out-输出和-response-getWriter-输出的区-别"><a href="#6-jsp-中的-out-输出和-response-getWriter-输出的区-别" class="headerlink" title="6.jsp 中的 out 输出和 response.getWriter 输出的区 别"></a>6.jsp 中的 out 输出和 response.getWriter 输出的区 别</h2><p><strong>response</strong> 中表示响应，我们经常用于设置返回给客户端的内容（输出）</p>
-<p> <strong>out</strong> 也是给用户做输出使用的</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423162302416.png" alt="image-20220423162302416"></p>
-<p>由于 jsp 翻译之后，底层源代码都是使用 out 来进行输出，所以一般情况下。我们在 jsp 页面中统一使用 out 来进行输出。避 免打乱页面输出内容的顺序</p>
-<p><strong>out.write()</strong> 输出字符串没有问题</p>
-<p> <strong>out.print()</strong> 输出任意数据都没有问题（都转换成为字符串后调用的 write 输出</p>
-<p><code>结论：在 jsp 页面中，可以统一使用 out.print()来进行输出</code></p>
-<h2 id="7-jsp-的常用标签"><a href="#7-jsp-的常用标签" class="headerlink" title="7.jsp 的常用标签"></a>7.jsp 的常用标签</h2><h3 id="jsp-静态包含（主要使用）"><a href="#jsp-静态包含（主要使用）" class="headerlink" title="jsp 静态包含（主要使用）"></a>jsp 静态包含（主要使用）</h3><p>功能使用：</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423200345009.png" alt="image-20220423200345009"></p>
-<p>示例说明</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- </span><br><span class="line">    </span><br><span class="line">	&lt;%@ include file=&quot;&quot;%&gt; 就是静态包含 </span><br><span class="line">		file 属性指定你要包含的 jsp 页面的路径 </span><br><span class="line">		地址中第一个斜杠 / 表示为 http://ip:port/工程路径/ 映射到代码的 web 目录 </span><br><span class="line">	静态包含的特点： </span><br><span class="line">		1、静态包含不会翻译被包含的 jsp 页面。 </span><br><span class="line">		2、静态包含其实是把被包含的 jsp 页面的代码拷贝到包含的位置执行输出。</span><br><span class="line">--%&gt; </span><br><span class="line"></span><br><span class="line">   头部信息<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">   主体内容<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&lt;%@ include file=&quot;/include/footer.jsp&quot;%&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423200955694.png" alt="image-20220423200955694"></p>
-<p>网页效果：</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423201132737.png" alt="image-20220423201132737"></p>
-<h3 id="jsp-动态包含"><a href="#jsp-动态包含" class="headerlink" title="jsp 动态包含"></a>jsp 动态包含</h3><p>示例说明：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line"><span class="tag">&lt;<span class="name">jsp:include</span> <span class="attr">page</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jsp:include</span>&gt;</span> 这是动态包含</span><br><span class="line">	page 属性是指定你要包含的 jsp 页面的路径</span><br><span class="line">	动态包含也可以像静态包含一样。把被包含的内容执行输出到包含位置</span><br><span class="line"></span><br><span class="line">动态包含的特点：</span><br><span class="line">	1、动态包含会把包含的 jsp 页面也翻译成为 java 代码</span><br><span class="line">	2、动态包含底层代码使用如下代码去调用被包含的 jsp 页面执行输出。</span><br><span class="line">	JspRuntimeLibrary.include(request, response, &quot;/include/footer.jsp&quot;, out, false);</span><br><span class="line">	3、动态包含，还可以传递参数</span><br><span class="line">--%&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">jsp:include</span> <span class="attr">page</span>=<span class="string">&quot;/include/footer.jsp&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">jsp:param</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;bbj&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">jsp:param</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">jsp:include</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>动态包含的底层原理：</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423163027495.png" alt="image-20220423163027495"></p>
-<h3 id="jsp-标签-转发"><a href="#jsp-标签-转发" class="headerlink" title="jsp 标签-转发"></a>jsp 标签-转发</h3><p>示例说明：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">	<span class="tag">&lt;<span class="name">jsp:forward</span> <span class="attr">page</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jsp:forward</span>&gt;</span> 是请求转发标签，它的功能就是请求转发</span><br><span class="line">		page 属性设置请求转发的路径</span><br><span class="line">--%&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">jsp:forward</span> <span class="attr">page</span>=<span class="string">&quot;/scope2.jsp&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jsp:forward</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="8、jsp-的练习"><a href="#8、jsp-的练习" class="headerlink" title="8、jsp 的练习"></a>8、jsp 的练习</h2><p>九九乘法口诀表</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">&lt;%-- 练习一：在 jsp 页面中输出九九乘法口诀表 --%&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>九九乘法口诀表<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> &gt;</span></span><br><span class="line">    &lt;%-- 外层循环遍历行 --%&gt;</span><br><span class="line">    &lt;% for (int i = 1; i &lt;= 9; i++) &#123; %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        &lt;%-- 内层循环遍历单元格 --%&gt;</span><br><span class="line">        &lt;% for (int j = 1; j &lt;= i ; j++) &#123; %&gt;</span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&lt;%=j + &quot;x&quot; + i + &quot;=&quot; + (i*j)%&gt;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        &lt;% &#125; %&gt;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>请求转发：</p>
-<p><img src="C:\Users\庞继豪\AppData\Roaming\Typora\typora-user-images\image-20220423205746705.png" alt="image-20220423205746705"></p>
-<h2 id="9、什么是-Listener-监听器"><a href="#9、什么是-Listener-监听器" class="headerlink" title="9、什么是 Listener 监听器"></a>9、什么是 Listener 监听器</h2><p>**1、Listener 监听器它是 JavaWeb 的三大组件之一。JavaWeb 的三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监 听器。 **</p>
-<p>**2、Listener 它是 JavaEE 的规范，就是接口 **</p>
-<p><strong>3、监听器的作用是，监听某种事物的变化。然后通过回调函数，反馈给客户（程序）去做一些相应的处理。</strong></p>
-<h3 id="9-1、ServletContextListener-监听器"><a href="#9-1、ServletContextListener-监听器" class="headerlink" title="9.1、ServletContextListener 监听器"></a>9.1、ServletContextListener 监听器</h3><p>ServletContextListener 它可以监听 ServletContext 对象的创建和销毁。</p>
-<p> ServletContext 对象在 web 工程启动的时候创建，在 web 工程停止的时候销毁。</p>
-<p> 监听到创建和销毁之后都会分别调用 ServletContextListener 监听器的方法反馈。</p>
-<p>两个方法分别是：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ServletContextListener</span> <span class="keyword">extends</span> <span class="title class_">EventListener</span> &#123;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 在 ServletContext 对象创建之后马上调用，做初始化</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">contextInitialized</span><span class="params">(ServletContextEvent sce)</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 在 ServletContext 对象销毁之后调用</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">contextDestroyed</span><span class="params">(ServletContextEvent sce)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如何使用 ServletContextListener 监听器监听 ServletContext 对象。</p>
-<p> 使用步骤如下：</p>
-<p> 1、编写一个类去实现 ServletContextListener </p>
-<p>2、实现其两个回调方法 </p>
-<p>3、到 web.xml 中去配置监听器</p>
-<p>监听器实现类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServletContextListenerImpl</span> <span class="keyword">implements</span> <span class="title class_">ServletContextListener</span> &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">contextInitialized</span><span class="params">(ServletContextEvent sce)</span> &#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;ServletContext 对象被创建了&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">contextDestroyed</span><span class="params">(ServletContextEvent sce)</span> &#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;ServletContext 对象被销毁了&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>initParam 						Map 							它可以获取在 web.xml 中配置的上下文参数</p>
 <p>web.xml 中的配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置监听器--&gt;</span><br><span class="line">&lt;listener&gt;</span><br><span class="line">&lt;listener-class&gt;com.atguigu.listener.MyServletContextListenerImpl&lt;/listener-class&gt;</span><br><span class="line">&lt;/listener&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>username<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>root<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>url<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>jdbc:mysql:///test<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输出<span class="tag">&lt;<span class="name">Context-param</span>&gt;</span>username 的值：$&#123; initParam.username &#125; </span><br><span class="line"> 输出<span class="tag">&lt;<span class="name">Context-param</span>&gt;</span>url 的值：$&#123; initParam.url &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="JSTL-标签库"><a href="#JSTL-标签库" class="headerlink" title="JSTL 标签库"></a>JSTL 标签库</h1><p>JSTL 标签库 全称是指 <strong>JSP Standard Tag Library</strong>       JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标 签库。 </p>
+<p>EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面 变得更佳简洁。</p>
+<p>JSTL 由五个不同功能的标签库组成。</p>
+<p><img src="/../imgs/title/image-20220904211835381.png" alt="image-20220904211835381"></p>
+<p>在 jsp 标签库中使用 taglib 指令引入标签库</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CORE 标签库 &lt;%@ taglib prefix=<span class="string">&quot;c&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt; </span><br><span class="line">XML 标签库</span><br><span class="line"></span><br><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;x&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/xml&quot;</span> %&gt;</span><br><span class="line">FMT 标签库</span><br><span class="line"></span><br><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;fmt&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/fmt&quot;</span> %&gt;</span><br><span class="line">SQL 标签库</span><br><span class="line"></span><br><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;sql&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/sql&quot;</span> %&gt;</span><br><span class="line">FUNCTIONS 标签库</span><br><span class="line"></span><br><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;fn&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/functions&quot;</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1、JSTL-标签库的使用步骤"><a href="#1、JSTL-标签库的使用步骤" class="headerlink" title="1、JSTL 标签库的使用步骤"></a>1、JSTL 标签库的使用步骤</h2><p>1、先导入 jstl 标签库的 jar 包。</p>
+<p> taglibs-standard-impl-1.2.1.jar</p>
+<p> taglibs-standard-spec-1.2.1.jar</p>
+<p>2、第二步，使用 taglib 指令引入标签库。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;c&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-1、core-核心库使用"><a href="#1-1、core-核心库使用" class="headerlink" title="1.1、core 核心库使用"></a>1.1、core 核心库使用</h2><h3 id="1-1-1、-lt-c-set-x2F-gt-（使用很少）"><a href="#1-1-1、-lt-c-set-x2F-gt-（使用很少）" class="headerlink" title="1.1.1、&lt;c:set &#x2F;&gt;（使用很少）"></a>1.1.1、&lt;c:set &#x2F;&gt;（使用很少）</h3><p>作用：set 标签可以往域中保存数据</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">i.&lt;c:set /&gt;</span><br><span class="line">	作用：set 标签可以往域中保存数据</span><br><span class="line">	域对象.setAttribute(key,value);</span><br><span class="line">		scope 属性设置保存到哪个域</span><br><span class="line">		page 表示 PageContext 域（默认值）</span><br><span class="line">		request 表示 Request 域</span><br><span class="line">		session 表示 Session 域</span><br><span class="line">		application 表示 ServletContext 域</span><br><span class="line">	<span class="keyword">var</span> 属性设置 key 是多少</span><br><span class="line">	value 属性设置值</span><br><span class="line">--%&gt;</span><br><span class="line">保存之前：$&#123; sessionScope.abc &#125; &lt;br&gt;</span><br><span class="line">&lt;c:set scope=<span class="string">&quot;session&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;abc&quot;</span> value=<span class="string">&quot;abcValue&quot;</span>/&gt;</span><br><span class="line">保存之后：$&#123; sessionScope.abc &#125; &lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-2、-lt-c-if-x2F-gt"><a href="#1-1-2、-lt-c-if-x2F-gt" class="headerlink" title="1.1.2、&lt;c:if &#x2F;&gt;"></a>1.1.2、&lt;c:if &#x2F;&gt;</h3><p>if 标签用来做 if 判断。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">	ii.&lt;c:<span class="keyword">if</span> /&gt;</span><br><span class="line">		<span class="keyword">if</span> 标签用来做 <span class="keyword">if</span> 判断。</span><br><span class="line">		test 属性表示判断的条件（使用 EL 表达式输出）</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123; 12 == 12 &#125;&quot;</span>&gt;</span><br><span class="line">	&lt;h1&gt;<span class="number">12</span> 等于 <span class="number">12</span>&lt;/h1&gt;</span><br><span class="line">&lt;/c:<span class="keyword">if</span>&gt;</span><br><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123; 12 != 12 &#125;&quot;</span>&gt;</span><br><span class="line">	&lt;h1&gt;<span class="number">12</span> 不等于 <span class="number">12</span>&lt;/h1&gt;</span><br><span class="line">&lt;/c:<span class="keyword">if</span>&gt;标签</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-3、-lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签"><a href="#1-1-3、-lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签" class="headerlink" title="1.1.3、&lt;c:choose &gt; &lt; c:when&gt;&lt;c:otherwise &gt;标签"></a>1.1.3、&lt;c:choose &gt; &lt; c:when&gt;&lt;c:otherwise &gt;标签</h3><p>作用：多路判断。跟 switch … case … default 非常接近</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">iii.&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</span><br><span class="line">作用：多路判断。跟 <span class="keyword">switch</span> ... <span class="keyword">case</span> .... <span class="keyword">default</span> 非常接近</span><br><span class="line">    </span><br><span class="line">choose 标签开始选择判断</span><br><span class="line">when 标签表示每一种判断情况</span><br><span class="line">	test 属性表示当前这种判断情况的值</span><br><span class="line">otherwise 标签表示剩下的情况</span><br><span class="line">    	</span><br><span class="line">&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签使用时需要注意的点：</span><br><span class="line">	<span class="number">1</span>、标签里不能使用 html 注释，要使用 jsp 注释</span><br><span class="line">	<span class="number">2</span>、when 标签的父标签一定要是 choose 标签</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	request.setAttribute(<span class="string">&quot;height&quot;</span>, <span class="number">180</span>);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">	&lt;%-- 这是 html 注释 --%&gt;</span><br><span class="line">	&lt;c:when test=<span class="string">&quot;$&#123; requestScope.height &gt; 190 &#125;&quot;</span>&gt;</span><br><span class="line">		&lt;h2&gt;小巨人&lt;/h2&gt;</span><br><span class="line">	&lt;/c:when&gt;</span><br><span class="line">	&lt;c:when test=<span class="string">&quot;$&#123; requestScope.height &gt; 180 &#125;&quot;</span>&gt;</span><br><span class="line">		&lt;h2&gt;很高&lt;/h2&gt;</span><br><span class="line">	&lt;/c:when&gt;</span><br><span class="line">	&lt;c:when test=<span class="string">&quot;$&#123; requestScope.height &gt; 170 &#125;&quot;</span>&gt;</span><br><span class="line">		&lt;h2&gt;还可以&lt;/h2&gt;</span><br><span class="line">	&lt;/c:when&gt;</span><br><span class="line">	&lt;c:otherwise&gt;</span><br><span class="line">		&lt;c:choose&gt;</span><br><span class="line">			&lt;c:when test=<span class="string">&quot;$&#123;requestScope.height &gt; 160&#125;&quot;</span>&gt;</span><br><span class="line">				&lt;h3&gt;大于 <span class="number">160</span>&lt;/h3&gt;</span><br><span class="line">			&lt;/c:when&gt;</span><br><span class="line">			&lt;c:when test=<span class="string">&quot;$&#123;requestScope.height &gt; 150&#125;&quot;</span>&gt;</span><br><span class="line">				&lt;h3&gt;大于 <span class="number">150</span>&lt;/h3&gt;</span><br><span class="line">			&lt;/c:when&gt;</span><br><span class="line">			&lt;c:when test=<span class="string">&quot;$&#123;requestScope.height &gt; 140&#125;&quot;</span>&gt;</span><br><span class="line">				&lt;h3&gt;大于 <span class="number">140</span>&lt;/h3&gt;</span><br><span class="line">			&lt;/c:when&gt;</span><br><span class="line">			&lt;c:otherwise&gt;</span><br><span class="line">				其他小于 <span class="number">140</span></span><br><span class="line">			&lt;/c:otherwise&gt;</span><br><span class="line">		&lt;/c:choose&gt;</span><br><span class="line">	&lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-4、-lt-c-forEach-x2F-gt"><a href="#1-1-4、-lt-c-forEach-x2F-gt" class="headerlink" title="1.1.4、&lt; c:forEach &#x2F;&gt;"></a>1.1.4、&lt; c:forEach &#x2F;&gt;</h3><p>作用：遍历输出使用。</p>
+<ol>
+<li><p>遍历 1 到 10，输出</p>
+<p>​	示例代码：</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--<span class="number">1.</span>遍历 <span class="number">1</span> 到 <span class="number">10</span>，输出</span><br><span class="line">	begin 属性设置开始的索引</span><br><span class="line">	end 属性设置结束的索引</span><br><span class="line">	<span class="keyword">var</span> 属性表示循环的变量(也是当前正在遍历到的数据)</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;table border=<span class="string">&quot;1&quot;</span>&gt;</span><br><span class="line">	&lt;c:forEach begin=<span class="string">&quot;1&quot;</span> end=<span class="string">&quot;10&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;i&quot;</span>&gt;</span><br><span class="line">		&lt;tr&gt;</span><br><span class="line">			&lt;td&gt;第$&#123;i&#125;行&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">	&lt;/c:forEach&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>遍历 Object 数组</p>
+<p>示例代码：</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- <span class="number">2.</span>遍历 Object 数组</span><br><span class="line">	<span class="keyword">for</span> (Object item: arr)</span><br><span class="line">	items 表示遍历的数据源（遍历的集合）</span><br><span class="line">	<span class="keyword">var</span> 表示当前遍历到的数据</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	request.setAttribute(<span class="string">&quot;arr&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;18610541354&quot;</span>,<span class="string">&quot;18688886666&quot;</span>,<span class="string">&quot;18699998888&quot;</span>&#125;);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">&quot;$&#123; requestScope.arr &#125;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;item&quot;</span>&gt;</span><br><span class="line">	$&#123; item &#125; &lt;br&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>遍历 Map 集合</p>
+<p>示例代码：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">	Map&lt;String,Object&gt; map = new HashMap&lt;String, Object&gt;();</span><br><span class="line">	map.put(&quot;key1&quot;, &quot;value1&quot;);</span><br><span class="line">	map.put(&quot;key2&quot;, &quot;value2&quot;);</span><br><span class="line">	map.put(&quot;key3&quot;, &quot;value3&quot;);</span><br><span class="line">	// for ( Map.Entry&lt;String,Object&gt; entry : map.entrySet()) &#123;</span><br><span class="line">	// &#125;</span><br><span class="line">	request.setAttribute(&quot;map&quot;, map);</span><br><span class="line">%&gt;</span><br><span class="line">	&lt;c:forEach items=&quot;$&#123; requestScope.map &#125;&quot; var=&quot;entry&quot;&gt;</span><br><span class="line">		&lt;h1&gt;$&#123;entry.key&#125; = $&#123;entry.value&#125;&lt;/h1&gt;</span><br><span class="line">	&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4、遍历 List 集合</p>
+<p>Sstudent：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">//4.编号，用户名，密码，年龄，电话信息</span><br><span class="line">private Integer id;</span><br><span class="line">private String username;</span><br><span class="line">private String password;</span><br><span class="line">private Integer age;</span><br><span class="line">private String phone;</span><br></pre></td></tr></table></figure>
+
+<p>示例代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--4.遍历 List 集合---list 中存放 Student 类，有属性：编号，用户名，密码，年龄，电话信息--%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	List&lt;Student&gt; studentList = new ArrayList&lt;Student&gt;();</span><br><span class="line">	for (int i = 1; i &lt;= 10; i++) &#123;</span><br><span class="line">		studentList.add(new Student(i,&quot;username&quot;+i ,&quot;pass&quot;+i,18+i,&quot;phone&quot;+i));</span><br><span class="line">	&#125;</span><br><span class="line">	request.setAttribute(&quot;stus&quot;, studentList);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;th&gt;编号&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;用户名&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;密码&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;年龄&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;电话&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">&lt;%--</span><br><span class="line">items 表示遍历的集合</span><br><span class="line">var 表示遍历到的数据</span><br><span class="line">begin 表示遍历的开始索引值</span><br><span class="line">end 表示结束的索引值</span><br><span class="line">step 属性表示遍历的步长值</span><br><span class="line">varStatus 属性表示当前遍历到的数据的状态</span><br><span class="line">for（int i = 1; i &lt; 10; i+=2）</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;c:forEach begin=&quot;2&quot; end=&quot;7&quot; step=&quot;2&quot; varStatus=&quot;status&quot; items=&quot;$&#123;requestScope.stus&#125;&quot; var=&quot;stu&quot;&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;$&#123;stu.id&#125;&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;$&#123;stu.username&#125;&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;$&#123;stu.password&#125;&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;$&#123;stu.age&#125;&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;$&#123;stu.phone&#125;&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;$&#123;status.step&#125;&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">	&lt;/c:forEach&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -613,8 +626,8 @@ errorPage 表示错误后自动跳转去的路径 <br/>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java-css-jsp/">
-                                    <span class="chip bg-color">java css jsp</span>
+                                <a href="/tags/EL-JSTL/">
+                                    <span class="chip bg-color">EL  JSTL</span>
                                 </a>
                             
                         </div>
@@ -697,13 +710,13 @@ errorPage 表示错误后自动跳转去的路径 <br/>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/post/7b04a925.html">
+                <a href="/post/3b8ba7c7.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="EL表达式&amp;JSTL标签库">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="3、文件的上传和下载">
                         
-                        <span class="card-title">EL表达式&amp;JSTL标签库</span>
+                        <span class="card-title">3、文件的上传和下载</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -714,14 +727,14 @@ errorPage 表示错误后自动跳转去的路径 <br/>
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-04
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/javaweb/" class="post-category">
-                                    javaweb
+                            <a href="/categories/JavaWeb/" class="post-category">
+                                    JavaWeb
                                 </a>
                             
                             
@@ -731,8 +744,8 @@ errorPage 表示错误后自动跳转去的路径 <br/>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/EL-JSTL/">
-                        <span class="chip bg-color">EL  JSTL</span>
+                    <a href="/tags/CSS-JSP/">
+                        <span class="chip bg-color">CSS JSP</span>
                     </a>
                     
                 </div>
@@ -743,16 +756,16 @@ errorPage 表示错误后自动跳转去的路径 <br/>
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/7b04a925.html">
+                <a href="/post/27b5e8b1.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="jsp">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="1、什么是JSP">
                         
-                        <span class="card-title">jsp</span>
+                        <span class="card-title">1、什么是JSP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -769,20 +782,19 @@ errorPage 表示错误后自动跳转去的路径 <br/>
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/javaweb/" class="post-category">
-                                    javaweb
+                            <a href="/categories/JavaWeb/" class="post-category">
+                                    JavaWeb
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java-css-jsp/">
-                        <span class="chip bg-color">java css jsp</span>
+                    <a href="/tags/JSP/">
+                        <span class="chip bg-color">JSP</span>
                     </a>
                     
                 </div>
@@ -922,7 +934,7 @@ errorPage 表示错误后自动跳转去的路径 <br/>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.2k</span>
+                        class="white-color">8.9k</span>
             
             
             
