@@ -34,13 +34,18 @@
 }
 
 body {
-     /* background-color: #eaeaea; */
-    background: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover,
-	url("https://wallhaven.cc/w/9mjoy1"), 
-	url("https://wallhaven.cc/w/9mjoy1") 0px 0px;
+    /* background-color: #eaeaea; */
+    background: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover, 
+	url("https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png"), url("https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png") 0px 0px;
     background-attachment: fixed;
     margin: 0;
     color: #7F95D1;
+}
+
+
+}
+
+  
 
 }
 
@@ -559,7 +564,7 @@ header .go-back i {
 }
 
 .bg-cover:before,
-/*
+
 .bg-cover:after {
     position: absolute;
     z-index: 1;
@@ -570,7 +575,7 @@ header .go-back i {
     top: 0;
     content: "";
 }
-*/
+
 
 .bg-cover .container {
     position: relative;
@@ -598,6 +603,7 @@ header .go-back i {
     font-weight: 400;
 }
 
+/*
 @-webkit-keyframes rainbow {
 
     0%,
@@ -690,6 +696,7 @@ header .go-back i {
     }
 }
 
+*/
 .index-card {
     margin-top: -10px;
     padding-top: 20px;

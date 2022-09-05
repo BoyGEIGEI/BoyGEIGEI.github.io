@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="3、文件的上传和下载, Boy阁阁的博客,HTML,CSS,JavaScript,java,linux等">
-    <meta name="description" content="文件的上传和下载文件的上传和下载，是非常常见的功能。很多的系统中，或者软件中都经常使用文件的上传和下载。 比如：QQ 头像，就使用了上传。 邮箱中也有附件的上传和下载功能。 OA 系统中审批有附件材料的上传。
-1、文件的上传介绍（*****">
+    <meta name="keywords" content="建立hexo博客Matery主题的过程, Boy阁阁的博客,HTML,CSS,JavaScript,java,linux等">
+    <meta name="description" content="2022年个人建立hexo博客Matery主题的过程心得视频观看第一部分视频学习链接：https://www.bilibili.com/video/BV1mU4y1j72n?spm_id_from=333.337.search-card.a">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>3、文件的上传和下载 | Boy阁阁的博客</title>
+    <title>建立hexo博客Matery主题的过程 | Boy阁阁的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -272,12 +271,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">3、文件的上传和下载</h1>
+                    <h1 class="description center-align post-title">建立hexo博客Matery主题的过程</h1>
                 </div>
             </div>
         </div>
@@ -301,23 +300,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS-JSP/">
-                                <span class="chip bg-color">CSS JSP</span>
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                <span class="chip bg-color">博客</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/JavaWeb/" class="post-category">
-                                JavaWeb
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -326,28 +316,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-09-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    91
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    1 分
                 </div>
                 
 
@@ -367,72 +357,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="文件的上传和下载"><a href="#文件的上传和下载" class="headerlink" title="文件的上传和下载"></a>文件的上传和下载</h1><p>文件的上传和下载，是非常常见的功能。很多的系统中，或者软件中都经常使用文件的上传和下载。 比如：QQ 头像，就使用了上传。 邮箱中也有附件的上传和下载功能。 OA 系统中审批有附件材料的上传。</p>
-<h2 id="1、文件的上传介绍（-重点）"><a href="#1、文件的上传介绍（-重点）" class="headerlink" title="1、文件的上传介绍（*****重点）"></a>1、文件的上传介绍（*****重点）</h2><p>1、要有一个 form 标签，method&#x3D;post 请求 </p>
-<p>2、form 标签的 encType 属性值必须为 multipart&#x2F;form-data 值</p>
-<p> 3、在 form 标签中使用 input type&#x3D;file 添加上传的文件</p>
-<p>4、编写服务器代码（Servlet 程序）接收，处理上传的数据。</p>
-<p>encType&#x3D;multipart&#x2F;form-data 表示提交的数据，以多段（每一个表单项一个数据段）的形式进行拼 接，然后以二进制流的形式发送给服务器</p>
-<p><img src="/../imgs/text/image-20220904212242077.png" alt="image-20220904212242077"></p>
-<h2 id="2、commons-fileupload-jar-常用-API-介绍说明"><a href="#2、commons-fileupload-jar-常用-API-介绍说明" class="headerlink" title="2、commons-fileupload.jar 常用 API 介绍说明"></a>2、commons-fileupload.jar 常用 API 介绍说明</h2><p>commons-fileupload.jar 需要依赖 commons-io.jar 这个包，所以两个包我们都要引入。</p>
-<p><strong>commons-fileupload.jar 和 commons-io.jar 包中，我们常用的类有哪些？</strong></p>
-<p><strong>ServletFileUpload 类，</strong></p>
-<p><strong>用于解析上传的数据。 FileItem 类，表示每一个表单项。</strong></p>
-<p> <strong>boolean ServletFileUpload.isMultipartContent(HttpServletRequest request);</strong> </p>
-<p><strong>判断当前上传的数据格式是否是多段的格式。</strong></p>
-<p> <strong>public List parseRequest(HttpServletRequest request)</strong> </p>
-<p><strong>解析上传的数据</strong> </p>
-<p><strong>boolean FileItem.isFormField()</strong></p>
-<p> <strong>判断当前这个表单项，是否是普通的表单项。还是上传的文件类型。 true 表示普通类型的表单项 false 表示上传的文件类型</strong> </p>
-<p><strong>String FileItem.getFieldName()</strong> </p>
-<p><strong>获取表单项的 name 属性值</strong></p>
-<p><strong>String FileItem.getString()</strong> </p>
-<p><strong>获取当前表单项的值。</strong> </p>
-<p><strong>String FileItem.getName();</strong> </p>
-<p><strong>获取上传的文件名 v</strong></p>
-<p><strong>oid FileItem.write( file );</strong> </p>
-<p><strong>将上传的文件写到 参数 file</strong> 1.3、fileupload 类库的使用：</p>
-<p>上传文件的表单：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;http://192.168.31.74:8080/09_EL_JSTL/uploadServlet&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">	用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	头像：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;photo&quot;</span> &gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>解析上传的数据的代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UploadServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用来处理上传的数据    </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1 先判断上传的数据是否多段数据（只有是多段的数据，才是文件上传的）</span></span><br><span class="line">        <span class="keyword">if</span> (ServletFileUpload.isMultipartContent(req)) &#123;</span><br><span class="line"><span class="comment">//           创建FileItemFactory工厂实现类</span></span><br><span class="line">            <span class="type">FileItemFactory</span> <span class="variable">fileItemFactory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DiskFileItemFactory</span>();</span><br><span class="line">            <span class="comment">// 创建用于解析上传数据的工具类ServletFileUpload类</span></span><br><span class="line">            <span class="type">ServletFileUpload</span> <span class="variable">servletFileUpload</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServletFileUpload</span>(fileItemFactory);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">// 解析上传的数据，得到每一个表单项FileItem</span></span><br><span class="line">                List&lt;FileItem&gt; list = servletFileUpload.parseRequest(req);</span><br><span class="line">                <span class="comment">// 循环判断，每一个表单项，是普通类型，还是上传的文件</span></span><br><span class="line">                <span class="keyword">for</span> (FileItem fileItem : list) &#123;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (fileItem.isFormField()) &#123;</span><br><span class="line">                        <span class="comment">// 普通表单项</span></span><br><span class="line"></span><br><span class="line">                        System.out.println(<span class="string">&quot;表单项的name属性值：&quot;</span> + fileItem.getFieldName());</span><br><span class="line">                        <span class="comment">// 参数UTF-8.解决乱码问题</span></span><br><span class="line">                        System.out.println(<span class="string">&quot;表单项的value属性值：&quot;</span> + fileItem.getString(<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line"></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="comment">// 上传的文件</span></span><br><span class="line">                        System.out.println(<span class="string">&quot;表单项的name属性值：&quot;</span> + fileItem.getFieldName());</span><br><span class="line">                        System.out.println(<span class="string">&quot;上传的文件名：&quot;</span> + fileItem.getName());</span><br><span class="line"></span><br><span class="line">                        fileItem.write(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;e:\\&quot;</span> + fileItem.getName()));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、文件下载"><a href="#3、文件下载" class="headerlink" title="3、文件下载"></a>3、文件下载</h2><p><img src="/../imgs/text/image-20220904212258899.png" alt="image-20220904212258899"></p>
-<p><strong>下载的常用 API 说明：</strong> </p>
-<p>response.getOutputStream();</p>
-<p>servletContext.getResourceAsStream(); </p>
-<p>servletContext.getMimeType();</p>
-<p> response.setContentType();</p>
-<p>response.setHeader(“C<strong>ontent-Disposition</strong>“, “<strong>attachment</strong>; <strong>fileName&#x3D;1.jpg</strong>“); </p>
-<p>这个响应头告诉浏览器。这是需要下载的。而 <strong>attachment</strong> 表示附件，也就是下载的一个文件。**fileName&#x3D;**后面， 表示下载的文件名。</p>
-<p>完成上面的两个步骤，下载文件是没问题了。但是如果我们要下载的文件是中文名的话。你会发现，下载无法正确显示出正确的中文名。</p>
-<p> 原因是在响应头中，不能包含有中文字符，只能包含 ASCII</p>
-<p>文件下载示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException,</span><br><span class="line">IOException &#123;</span><br><span class="line">	<span class="comment">// 1、获取要下载的文件名</span></span><br><span class="line">	<span class="type">String</span> <span class="variable">downloadFileName</span> <span class="operator">=</span> <span class="string">&quot;2.jpg&quot;</span>;</span><br><span class="line">	<span class="comment">// 2、读取要下载的文件内容 (通过 ServletContext 对象可以读取)</span></span><br><span class="line">	<span class="type">ServletContext</span> <span class="variable">servletContext</span> <span class="operator">=</span> getServletContext();</span><br><span class="line">	<span class="comment">// 获取要下载的文件类型</span></span><br><span class="line">	<span class="type">String</span> <span class="variable">mimeType</span> <span class="operator">=</span> servletContext.getMimeType(<span class="string">&quot;/file/&quot;</span> + downloadFileName);</span><br><span class="line">	System.out.println(<span class="string">&quot;下载的文件类型：&quot;</span> + mimeType);</span><br><span class="line">	<span class="comment">// 4、在回传前，通过响应头告诉客户端返回的数据类型</span></span><br><span class="line">	resp.setContentType(mimeType);</span><br><span class="line">	<span class="comment">// 5、还要告诉客户端收到的数据是用于下载使用（还是使用响应头）</span></span><br><span class="line">	<span class="comment">// Content-Disposition 响应头，表示收到的数据怎么处理</span></span><br><span class="line">	<span class="comment">// attachment 表示附件，表示下载使用</span></span><br><span class="line">	<span class="comment">// filename= 表示指定下载的文件名</span></span><br><span class="line">	resp.setHeader(<span class="string">&quot;Content-Disposition&quot;</span>, <span class="string">&quot;attachment; filename=&quot;</span> + downloadFileName);</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	* /斜杠被服务器解析表示地址为 http://ip:prot/工程名/ 映射 到代码的 Web 目录</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="type">InputStream</span> <span class="variable">resourceAsStream</span> <span class="operator">=</span> servletContext.getResourceAsStream(<span class="string">&quot;/file/&quot;</span> +</span><br><span class="line">	downloadFileName);</span><br><span class="line">	<span class="comment">// 获取响应的输出流</span></span><br><span class="line">	<span class="type">OutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> resp.getOutputStream();</span><br><span class="line">	<span class="comment">// 3、把下载的文件内容回传给客户端</span></span><br><span class="line">	<span class="comment">// 读取输入流中全部的数据，复制给输出流，输出给客户端</span></span><br><span class="line">	IOUtils.copy(resourceAsStream,outputStream);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="文名乱码问题解决方案："><a href="#文名乱码问题解决方案：" class="headerlink" title="文名乱码问题解决方案："></a>文名乱码问题解决方案：</h2><h3 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h3><p><strong>URLEncoder 解决 IE 和谷歌浏览器的 附件中 文名问题。</strong></p>
-<p>​		如果客户端浏览器是 IE 浏览器 或者 是谷歌浏览器。我们需要使用 URLEncoder 类先对中文名进行 UTF-8 的编码 操作。 </p>
-<p>​		因为 IE 浏览器和谷歌浏览器收到含有编码后的字符串后会以 UTF-8 字符集进行解码显示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把中文名进行 UTF-8 编码操作。</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;attachment; fileName=&quot;</span> + URLEncoder.encode(<span class="string">&quot;中文.jpg&quot;</span>, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"><span class="comment">// 然后把编码后的字符串设置到响应头中</span></span><br><span class="line">response.setHeader(<span class="string">&quot;Content-Disposition&quot;</span>, str);</span><br></pre></td></tr></table></figure>
-
-<h3 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h3><p><strong>BASE64 编解码 解决 火狐浏览器的附件中文名问 题</strong></p>
-<p>如果客户端浏览器是火狐浏览器。 那么我们需要对中文名进行 BASE64 的编码操作</p>
-<p>这时候需要把请求头 Content-Disposition: attachment; filename&#x3D;中文名 </p>
-<p>编码成为：Content-Disposition: attachment; filename&#x3D;&#x3D;?charset?B?xxxxx?&#x3D;</p>
-<blockquote>
-<p>&#x3D;?charset?B?xxxxx?&#x3D; 现在我们对这段内容进行一下说明。</p>
-<p>&#x3D;?							表示编码内容的开始</p>
-<p>charset 					表示字符集</p>
-<p>B 								表示 BASE64 编码</p>
-<p>xxxx 						表示文件名 BASE64</p>
-<p>?&#x3D;								表示编码内容的结束</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">	<span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;这是需要 Base64 编码的内容&quot;</span>;</span><br><span class="line">	<span class="comment">// 创建一个 Base64 编码器</span></span><br><span class="line">	<span class="type">BASE64Encoder</span> <span class="variable">base64Encoder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BASE64Encoder</span>();</span><br><span class="line">	<span class="comment">// 执行 Base64 编码操作</span></span><br><span class="line">	<span class="type">String</span> <span class="variable">encodedString</span> <span class="operator">=</span> base64Encoder.encode(content.getBytes(<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line">	System.out.println( encodedString );</span><br><span class="line">	<span class="comment">// 创建 Base64 解码器</span></span><br><span class="line">	<span class="type">BASE64Decoder</span> <span class="variable">base64Decoder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BASE64Decoder</span>();</span><br><span class="line">	<span class="comment">// 解码操作</span></span><br><span class="line">	<span class="type">byte</span>[] bytes = base64Decoder.decodeBuffer(encodedString);</span><br><span class="line">	<span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(bytes, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">	System.out.println(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>因为火狐使用的是 BASE64 的编解码方式还原响应中的汉字。所以需要使用 BASE64Encoder 类进行编码操作</p>
+                <h1 id="2022年个人建立hexo博客Matery主题的过程心得"><a href="#2022年个人建立hexo博客Matery主题的过程心得" class="headerlink" title="2022年个人建立hexo博客Matery主题的过程心得"></a>2022年个人建立<em>hexo</em>博客<em>Matery</em>主题的过程心得</h1><h2 id="视频观看第一部分视频学习"><a href="#视频观看第一部分视频学习" class="headerlink" title="视频观看第一部分视频学习"></a>视频观看第一部分视频学习</h2><p>链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mU4y1j72n?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1mU4y1j72n?spm_id_from=333.337.search-card.all.click</a></p>
+<p>视频中的网址失效了，在本文下面给你最新的博客教程</p>
+<h2 id="第二部分：遇到问题看下面的文档"><a href="#第二部分：遇到问题看下面的文档" class="headerlink" title="第二部分：遇到问题看下面的文档"></a>第二部分：遇到问题看下面的文档</h2><p>以及开发文档：<a target="_blank" rel="noopener" href="https://wushishu.xyz/post/be8880ea.html">https://wushishu.xyz/post/be8880ea.html</a></p>
 
                 
             </div>
@@ -449,7 +376,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Boy阁阁</a>
+                    <a href="/about" rel="external nofollow noreferrer">boy阁阁</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -459,7 +386,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/post/3b8ba7c7.html">http://example.com/post/3b8ba7c7.html</a>
+                    <a href="http://example.com/post/92ce42d8.html">http://example.com/post/92ce42d8.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -472,7 +399,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Boy阁阁</a>
+                    <a href="/about" target="_blank">boy阁阁</a>
                     !
                 </span>
             </div>
@@ -497,8 +424,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CSS-JSP/">
-                                    <span class="chip bg-color">CSS JSP</span>
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                    <span class="chip bg-color">博客</span>
                                 </a>
                             
                         </div>
@@ -581,13 +508,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/post/92ce42d8.html">
+                <a href="/post/8884fc56.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="建立hexo博客Matery主题的过程">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Hexo-Matery主题优化篇（一）">
                         
-                        <span class="card-title">建立hexo博客Matery主题的过程</span>
+                        <span class="card-title">Hexo-Matery主题优化篇（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -626,13 +553,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/7b04a925.html">
+                <a href="/post/3b8ba7c7.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="2、EL表达式&amp;JSTL标签库">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="3、文件的上传和下载">
                         
-                        <span class="card-title">2、EL表达式&amp;JSTL标签库</span>
+                        <span class="card-title">3、文件的上传和下载</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -643,7 +570,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-04
                             </span>
                         <span class="publish-author">
                             
@@ -660,8 +587,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/EL-JSTL/">
-                        <span class="chip bg-color">EL  JSTL</span>
+                    <a href="/tags/CSS-JSP/">
+                        <span class="chip bg-color">CSS JSP</span>
                     </a>
                     
                 </div>

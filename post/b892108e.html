@@ -1,0 +1,1068 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Hexo-Matery主题优化篇（二）, Boy阁阁的博客,HTML,CSS,JavaScript,java,linux等">
+    <meta name="description" content="Hexo-Matery主题优化篇（二）
+首先声明一下，一定要分清什么是站点配置文件，什么是主题文件，比如我在F盘新建我的博客文件夹，名称为blog，那么站点配置文件的路径为F:&amp;#x2F;blog&amp;#x2F;_config.yml，而你的主">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Hexo-Matery主题优化篇（二） | Boy阁阁的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Boy阁阁的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Boy阁阁的博客</div>
+        <div class="logo-desc">
+            
+            本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Hexo-Matery主题优化篇（二）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                <span class="chip bg-color">博客</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-09-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-09-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Hexo-Matery主题优化篇（二）"><a href="#Hexo-Matery主题优化篇（二）" class="headerlink" title="Hexo-Matery主题优化篇（二）"></a>Hexo-Matery主题优化篇（二）</h1><blockquote>
+<p>首先声明一下，一定要分清什么是站点配置文件，什么是主题文件，比如我在F盘新建我的博客文件夹，名称为blog，那么站点配置文件的路径为F:&#x2F;blog&#x2F;_config.yml，而你的主题配置文件路径为F:&#x2F;blog&#x2F;themes&#x2F;matery&#x2F;_config.yml。</p>
+</blockquote>
+<h4 id="1、修改主题的基本信息"><a href="#1、修改主题的基本信息" class="headerlink" title="1、修改主题的基本信息"></a>1、修改主题的基本信息</h4><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#这是根目录下的配置文件信息</span><br><span class="line">title: Boy阁阁  #这是网站标题</span><br><span class="line">subtitle:      #这是网站副标题subtitle</span><br><span class="line"># 下面两个description,keywords，需要填上，如果想让搜索引擎收录，这个做SEO优化必不可忽视的两个属性</span><br><span class="line">description: 专注于Web,分享生活,分享知识  #网站描述</span><br><span class="line">keywords: [HTML, CSS, JavaScript, JQuery, React, Vue.js等]  #网站的关键词</span><br><span class="line">author: boygege  #作者，文章版权所显示的</span><br><span class="line">language: zh-CN  #网站语言，不填写，默认为英文</span><br><span class="line">timezone:   #时区，可以不填写</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、修改主题的logo图和favicon图标"><a href="#2、修改主题的logo图和favicon图标" class="headerlink" title="2、修改主题的logo图和favicon图标"></a>2、修改主题的logo图和favicon图标</h4><p>打开你的主题配置文件，找到如下的配置，将其更改为你的logo和favicon路径即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 配置网站favicon和网站LOGO</span><br><span class="line">favicon: /favicon.png</span><br><span class="line">logo: /favicon.png</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、去掉右上角的github图标"><a href="#3、去掉右上角的github图标" class="headerlink" title="3、去掉右上角的github图标"></a>3、去掉右上角的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020">github</a>图标</h4><p>打开你的主题配置文件，找到下面的配置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Whether to display fork me on github icon and link, default true, You can change it to your repo address</span><br><span class="line"># 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.</span><br><span class="line">githubLink:</span><br><span class="line">  enable: true</span><br><span class="line">  url: https://github.com/blinkfox/hexo-theme-matery</span><br><span class="line">  title: Fork Me</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将<strong>enable</strong>的属性值由<strong>true</strong>改为<strong>false</strong>即可。</p>
+<h4 id="4、去掉主页的Github按钮"><a href="#4、去掉主页的Github按钮" class="headerlink" title="4、去掉主页的Github按钮"></a>4、去掉主页的Github按钮</h4><p>打开主题配置文件，找到下面的配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 首页 banner 中的第二个按钮的配置，包括按钮的显示名称、font awesome图标和按钮的超链接.</span><br><span class="line">indexbtn:</span><br><span class="line">  enable: true</span><br><span class="line">  name: Github</span><br><span class="line">  icon: fab fa-github-alt</span><br><span class="line">  url: https://github.com/blinkfox/hexo-theme-matery</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="5、修改社交链接"><a href="#5、修改社交链接" class="headerlink" title="5、修改社交链接"></a>5、修改社交链接</h4><p>主页banner图中显示的社交链接与底部的社交链接是同步修改的，打开主题配置文件，将社交链接信息修改为你的信息。修改如下:</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">socialLink:</span><br><span class="line">  github:  https:<span class="comment">//github.com/BoyGEIGEI</span></span><br><span class="line">  email: mailto:<span class="number">1283181243</span><span class="meta">@qq</span>.com</span><br><span class="line">  facebook: # https:<span class="comment">//www.facebook.com/xxx</span></span><br><span class="line">  twitter: # https:<span class="comment">//twitter.com/xxx</span></span><br><span class="line">  qq: <span class="number">1283181243</span></span><br><span class="line">  csdn: https:<span class="comment">//blog.csdn.net/weixin_53330986?spm=1018.2226.3001.5343</span></span><br><span class="line">  weibo: # https:<span class="comment">//weibo.com/xxx</span></span><br><span class="line">  zhihu: # https:<span class="comment">//www.zhihu.com/xxx</span></span><br><span class="line">  rss: <span class="literal">true</span> # <span class="literal">true</span>、<span class="literal">false</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中的<code>weixin</code>我是用的图片链接，会跳转到一个新的标签页，之后还需要修改<code>ejs</code>文件，文件在主题目录下的<code>layout</code>文件夹下的<code>_partial</code>文件夹，修改<code>social-link.ejs</code>，添加相关的配置，我个人添加的配置如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.socialLink.jianshu) &#123; %&gt;</span><br><span class="line">    &lt;a href=&quot;&lt;%= theme.socialLink.jianshu %&gt;&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;关注我的简书: &lt;%= theme.socialLink.jianshu %&gt;&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fab fa-jianshu&quot;&gt;简&lt;/i&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.socialLink.csdn) &#123; %&gt;</span><br><span class="line">    &lt;a href=&quot;&lt;%= theme.socialLink.csdn %&gt;&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;关注我的CSDN: &lt;%= theme.socialLink.csdn %&gt;&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fab fa-csdn&quot;&gt;C&lt;/i&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line">&lt;% if (theme.socialLink.juejin) &#123; %&gt;</span><br><span class="line">    &lt;a href=&quot;&lt;%= theme.socialLink.juejin %&gt;&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;关注我的掘金: &lt;%= theme.socialLink.juejin %&gt;&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fab fa-juejin&quot;&gt;掘&lt;/i&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.socialLink.cnblogs) &#123; %&gt;</span><br><span class="line">    &lt;a href=&quot;&lt;%= theme.socialLink.cnblogs %&gt;&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;关注我的博客园: &lt;%= theme.socialLink.cnblogs %&gt;&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fab fa-juejin&quot;&gt;博&lt;/i&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line">&lt;% if (theme.socialLink.weixin) &#123; %&gt;</span><br><span class="line">    &lt;a href=&quot;&lt;%= theme.socialLink.weixin %&gt;&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;微信联系我: &lt;%= theme.socialLink.weixin %&gt;&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;fab fa-weixin&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="6、去掉banner图的动态滤镜颜色并修改导航栏颜色"><a href="#6、去掉banner图的动态滤镜颜色并修改导航栏颜色" class="headerlink" title="6、去掉banner图的动态滤镜颜色并修改导航栏颜色"></a>6、去掉banner图的动态滤镜颜色并修改导航栏颜色</h4><h4 id="（1）去掉动态滤镜颜色"><a href="#（1）去掉动态滤镜颜色" class="headerlink" title="（1）去掉动态滤镜颜色"></a>（1）去掉动态滤镜颜色</h4><p>打开<code>themes/matery/source/css/matery.css</code>文件，查找<strong>rainbow</strong>属性，然后将其注释即可。如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*如果想去掉banner图的颜色渐变效果，请将以下的css属性注释掉或者删除掉即可*/</span><br><span class="line">@-webkit-keyframes rainbow &#123;</span><br><span class="line">   /* 动态切换背景颜色. */</span><br><span class="line">&#125;</span><br><span class="line">@keyframes rainbow &#123;</span><br><span class="line">    /* 动态切换背景颜色. */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）、修改导航栏颜色及透明效果"><a href="#（2）、修改导航栏颜色及透明效果" class="headerlink" title="（2）、修改导航栏颜色及透明效果"></a>（2）、修改导航栏颜色及透明效果</h4><p>打开<code>themes/matery/source/css/matery.css</code>文件，大约在250行，有一个<code>.bg-color</code>属性，修改其属性值即可，代码如下：</p>
+<p><img src="/../imgs/Hexo-Matery%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89/image-20220905195926854.png" alt="image-20220905195926854"></p>
+<h4 id="（3）、取消首页渐变颜色动画"><a href="#（3）、取消首页渐变颜色动画" class="headerlink" title="（3）、取消首页渐变颜色动画"></a>（3）、取消首页渐变颜色动画</h4><p>在<code>themes\Matery\source\css\matery.css</code>，ctrl+F快捷键查找<code>.bg-cover:after</code>，注释掉即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* .bg-cover:after &#123;</span><br><span class="line">    -webkit-animation: rainbow 60s infinite;</span><br><span class="line">    animation: rainbow 60s infinite;</span><br><span class="line">&#125; */</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>banner轮播图：原思路是在主题config配置</p>
+<p><img src="/../imgs/Hexo-Matery%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89/image-20220905200052845.png" alt="image-20220905200052845"></p>
+<p>如果要修改图片轮播效果，在以下文件<br><code>themes\Matery\layout\_partial\bg-cover-content.ejs</code>位置。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.banner.enable) &#123; %&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 每天切换 banner 图.  Switch banner image every day.</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;.bg-cover&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;background-image&#x27;</span>, <span class="string">&#x27;url(&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(&#x27;</span>/medias/banner/<span class="string">&#x27; + new Date().getDay() + &#x27;</span>.<span class="property">jpg</span><span class="string">&#x27;) %&gt;)&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&lt;% &#125; else &#123; %&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;.bg-cover&#x27;</span>).<span class="title function_">css</span>(<span class="string">&#x27;background-image&#x27;</span>, <span class="string">&#x27;url(&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(&#x27;</span>/medias/banner/<span class="number">0.</span>jpg<span class="string">&#x27;) %&gt;)&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果要多图轮播：主题配置文件夹下设置图片地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">featureImages:</span><br><span class="line">- /medias/featureimages/0.jpg</span><br><span class="line">- /medias/featureimages/1.jpg</span><br><span class="line">- /medias/featureimages/2.jpg</span><br><span class="line">- /medias/featureimages/3.jpg</span><br><span class="line">- /medias/featureimages/4.jpg</span><br><span class="line">- /medias/featureimages/5.jpg</span><br><span class="line">- /medias/featureimages/6.jpg</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、增加背景壁纸-amp-优化目录栏"><a href="#7、增加背景壁纸-amp-优化目录栏" class="headerlink" title="7、增加背景壁纸&amp;优化目录栏"></a>7、增加背景壁纸&amp;优化目录栏</h2><p>在<code>themes\Matery\source\css\matery.css</code>，ctrl+F快捷键查找<code>body</code><br>修改样式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">     /* background-color: #eaeaea; */</span><br><span class="line">    background: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover,</span><br><span class="line">	url(&quot;https://wallhaven.cc/w/9mjoy1&quot;), </span><br><span class="line">	url(&quot;https://wallhaven.cc/w/9mjoy1&quot;) 0px 0px;</span><br><span class="line">    background-attachment: fixed;</span><br><span class="line">    margin: 0;</span><br><span class="line">    color: #7F95D1;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更多壁纸可以参考<a target="_blank" rel="noopener" href="https://wallhaven.cc/">https://wallhaven.cc</a></p>
+<p>适配目录<br>我发现目录样式竟然在：<code>themes\Matery\layout\_partial\post-detail-toc.ejs</code>，2333，在这里修改吧，修改内容如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.toc-widget &#123;</span><br><span class="line">    width: 345px;</span><br><span class="line">    padding-left: 20px;</span><br><span class="line">    background-color: rgb(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>,<span class="number">0.7</span>);</span><br><span class="line">    border-radius: 10px;</span><br><span class="line">    box-shadow: <span class="number">0</span> 10px 35px 2px <span class="title function_">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.15</span>)</span>, <span class="number">0</span> 5px 15px <span class="title function_">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.07</span>)</span>, <span class="number">0</span> 2px 5px -5px <span class="title function_">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.1</span>)</span> !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="8、增加点击跳转评论按钮"><a href="#8、增加点击跳转评论按钮" class="headerlink" title="8、增加点击跳转评论按钮"></a>8、增加点击跳转评论按钮</h2><p>新建文件<code>themes\Matery\layout\_partial\back-comment.ejs</code>,粘贴如下代码</p>
+<p>我这里评论是valine，直接填写的valine的id——<code>href=&quot;#vcomments&quot;</code>,如果是其他评论，对应修改即可。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 直达评论 --&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;to_comment&quot;</span> class=<span class="string">&quot;comment-scroll&quot;</span>&gt;</span><br><span class="line">    &lt;a class=<span class="string">&quot;btn-floating btn-large waves-effect waves-light&quot;</span> href=<span class="string">&quot;#vcomments&quot;</span> title=<span class="string">&quot;直达评论&quot;</span>&gt;</span><br><span class="line">        &lt;i class=<span class="string">&quot;fas fa-comments&quot;</span>&gt;&lt;/i&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在<code>themes\Matery\layout\_partial\valine.ejs</code>文末添加一条，引用第一步的内容；</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(<span class="string">&#x27;_partial/back-comment.ejs&#x27;</span>) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>则只在valine存在的页面才显示直达评论，防止首页其他地方也出现按钮。其实还可以优化为浮动出现，有一点麻烦，我这里没有设置。</p>
+<h2 id="9、修改滑动条"><a href="#9、修改滑动条" class="headerlink" title="9、修改滑动条"></a>9、修改滑动条</h2><p>在<code>themes\Matery\source\css\matery.css</code>样式添加如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 滚动条 */</span></span><br><span class="line">::-webkit-scrollbar-thumb &#123;</span><br><span class="line">    background-color: #FF2A68;</span><br><span class="line">    background-image: -webkit-linear-gradient(45deg,rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">.4</span>) <span class="number">25</span>%,transparent <span class="number">25</span>%,transparent <span class="number">50</span>%,rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">.4</span>) <span class="number">50</span>%,rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">.4</span>) <span class="number">75</span>%,transparent <span class="number">75</span>%,transparent);</span><br><span class="line">    border-radius: 3em;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-track &#123;</span><br><span class="line">    background-color: #ffcacaff;</span><br><span class="line">    border-radius: 3em;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar &#123;</span><br><span class="line">    width: 8px;</span><br><span class="line">    height: 15px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="10、樱花特效"><a href="#10、樱花特效" class="headerlink" title="10、樱花特效"></a>10、樱花特效</h2><p>在 &#x2F;themes&#x2F;matery&#x2F;source&#x2F;js 新建文件 sakura.js，并添加如下代码</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shw2018/hexo-blog-fly/blob/master/themes/matery/source/js/sakura.js">code</a></p>
+<p>然后在 &#x2F;themes&#x2F;matery&#x2F;layout.ejs 中添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.sakura.enable) &#123; %&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    //只在桌面版网页启用特效</span><br><span class="line">    var windowWidth = $(window).width();</span><br><span class="line">    if (windowWidth &gt; 768) &#123;</span><br><span class="line">        document.write(&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/sakura.js&quot;&gt;&lt;/script&gt;&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在主题的配置文件中增加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 页面樱花飘落动效</span><br><span class="line">sakura:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/victoryxa/article/details/105841309">https://blog.csdn.net/victoryxa/article/details/105841309</a></p>
+<p>​					<a target="_blank" rel="noopener" href="https://blog.csdn.net/cungudafa/article/details/106278206">https://blog.csdn.net/cungudafa/article/details/106278206</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">boy阁阁</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/post/b892108e.html">http://example.com/post/b892108e.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">boy阁阁</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                    <span class="chip bg-color">博客</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/post/b892108e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Hexo-Matery主题优化篇（二）">
+                        
+                        <span class="card-title">Hexo-Matery主题优化篇（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            boy阁阁
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/8884fc56.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Hexo-Matery主题优化篇（一）">
+                        
+                        <span class="card-title">Hexo-Matery主题优化篇（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            boy阁阁
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">Boy阁阁</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">13.5k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/BoyGEIGEI" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:mailto:1283181243@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1283181243" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1283181243" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+	
+	<script type="text/javascript">
+//只在桌面版网页启用特效
+var windowWidth = $(window).width();
+if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+
+</body>
+
+</html>
