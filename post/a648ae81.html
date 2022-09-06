@@ -1,0 +1,1159 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Spring5(二), Boy阁阁的博客,HTML,CSS,JavaScript,java,linux等">
+    <meta name="description" content="AOP一、概念1、什么是 AOP（1）面向切面编程（方面），利用 AOP 可以对业务逻辑的各个部分进行隔离，从而使得 业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。 
+（2）通俗描述：&amp;#x3D;&amp;#x3D;不通">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Spring5(二) | Boy阁阁的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Boy阁阁的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Boy阁阁的博客</div>
+        <div class="logo-desc">
+            
+            本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Spring5(二)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/spring/">
+                                <span class="chip bg-color">spring</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Spring5/" class="post-category">
+                                Spring5
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-09-06
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-09-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><h3 id="1、什么是-AOP"><a href="#1、什么是-AOP" class="headerlink" title="1、什么是 AOP"></a><strong>1、什么是 AOP</strong></h3><p>（1）面向切面编程（方面），利用 AOP 可以对业务逻辑的各个部分进行隔离，从而使得 业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。 </p>
+<p>（2）通俗描述：&#x3D;&#x3D;不通过修改源代码方式，在主干功能里面添加新功能&#x3D;&#x3D; </p>
+<p>（3）使用登录例子说明 AOP</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220728205517222.png" alt="image-20220728205517222"></p>
+<h2 id="二、底层原理"><a href="#二、底层原理" class="headerlink" title="二、底层原理"></a>二、底层原理</h2><h3 id="1、AOP-底层使用动态代理"><a href="#1、AOP-底层使用动态代理" class="headerlink" title="1、AOP 底层使用动态代理"></a>1、AOP 底层使用动态代理</h3><h4 id="（1）有两种情况动态代理"><a href="#（1）有两种情况动态代理" class="headerlink" title="（1）有两种情况动态代理"></a>（1）有两种情况动态代理</h4><p><strong>第一种</strong> <strong>有接口情况，使用 JDK 动态代理</strong> </p>
+<p>⚫ 创建接口实现类代理对象，增强类的方法</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220728205709398.png" alt="image-20220728205709398"></p>
+<p><strong>第二种 没有接口情况，使用 CGLIB 动态代理</strong></p>
+<p>⚫ 创建子类的代理对象，增强类的方法</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220728205805265.png" alt="image-20220728205805265"></p>
+<h2 id="三、JDK-动态代理"><a href="#三、JDK-动态代理" class="headerlink" title="三、JDK 动态代理"></a>三、JDK 动态代理</h2><h3 id="1、使用-JDK-动态代理"><a href="#1、使用-JDK-动态代理" class="headerlink" title="1、使用 JDK 动态代理"></a>1、使用 JDK 动态代理</h3><p>使用 Proxy 类里面的方法创建代理对象</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220728210014148.png" alt="image-20220728210014148"></p>
+<h4 id="（1）调用-newProxyInstance-方法"><a href="#（1）调用-newProxyInstance-方法" class="headerlink" title="（1）调用 newProxyInstance 方法"></a>（1）调用 newProxyInstance 方法</h4><p><strong><code>newProxyInstance(ClassLoader loader, 类&lt;?&gt;[] interfaces, InvocationHandler h)</code> 方法有三个参数：</strong> </p>
+<p>第一参数，类加载器 </p>
+<p>第二参数，增强方法所在的类，这个类实现的接口，支持多个接口 </p>
+<p>第三参数，实现这个接口 InvocationHandler，创建代理对象，写增强的部分</p>
+<h3 id="2、编写-JDK-动态代理代码"><a href="#2、编写-JDK-动态代理代码" class="headerlink" title="2、编写 JDK 动态代理代码"></a>2、编写 JDK 动态代理代码</h3><h4 id="（1）创建接口，定义方法"><a href="#（1）创建接口，定义方法" class="headerlink" title="（1）创建接口，定义方法"></a>（1）创建接口，定义方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserDao</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span>;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">update</span><span class="params">(String id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）创建接口实现类，实现方法"><a href="#（2）创建接口实现类，实现方法" class="headerlink" title="（2）创建接口实现类，实现方法"></a>（2）创建接口实现类，实现方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title class_">UserDao</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;add方法执行了、、、&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">update</span><span class="params">(String id)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;update方法执行了、、、&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）使用-Proxy-类创建接口代理对象"><a href="#（3）使用-Proxy-类创建接口代理对象" class="headerlink" title="（3）使用 Proxy 类创建接口代理对象"></a>（3）使用 Proxy 类创建接口代理对象</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Array;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JDKProxy</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//创建接口实现类代理对象</span></span><br><span class="line">        Class[] interfaces=&#123;UserDao.class&#125;;</span><br><span class="line">        UserDaoImpl userDao=<span class="keyword">new</span> <span class="title class_">UserDaoImpl</span>();</span><br><span class="line">        <span class="type">UserDao</span> <span class="variable">dao</span> <span class="operator">=</span> (UserDao)Proxy.newProxyInstance(JDKProxy.class.getClassLoader(), interfaces, <span class="keyword">new</span> <span class="title class_">UserDaoProxy</span>(userDao));</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> dao.add(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;result&quot;</span>+result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建代理对象代码</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserDaoProxy</span> <span class="keyword">implements</span>  <span class="title class_">InvocationHandler</span>&#123;</span><br><span class="line">    <span class="comment">//1、把创建的是谁的代理对象，把谁传递进来</span></span><br><span class="line">    <span class="comment">//有参构造传递</span></span><br><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserDaoProxy</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">            <span class="built_in">this</span>.obj=obj;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="comment">//增加的逻辑</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        <span class="comment">//方法之前</span></span><br><span class="line">        System.out.println(<span class="string">&quot;方法之前执行、、、&quot;</span>+method.getName()+<span class="string">&quot;:传递的参数&quot;</span>+ Arrays.toString(args));</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//被增强的方法执行</span></span><br><span class="line">        <span class="type">Object</span> <span class="variable">res</span> <span class="operator">=</span> method.invoke(obj, args);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法之后</span></span><br><span class="line">        System.out.println(<span class="string">&quot;方法执行之后、、、&quot;</span>+obj);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">		方法之前执行、、、add:传递的参数[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">		add方法执行了、、、</span><br><span class="line">		方法执行之后、、、my.spring5.UserDaoImpl@63947c6b</span><br><span class="line">		result3</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、术语"><a href="#四、术语" class="headerlink" title="四、术语"></a>四、术语</h2><h3 id="1、连接点"><a href="#1、连接点" class="headerlink" title="1、连接点"></a>1、连接点</h3><p><strong>类里面的哪些方法可以增强，这些方法就称为连接点</strong></p>
+<h3 id="2、切入点"><a href="#2、切入点" class="headerlink" title="2、切入点"></a>2、切入点</h3><p><strong>实际被真正增强的方法，称为切入点</strong></p>
+<h3 id="3、通知（增强）"><a href="#3、通知（增强）" class="headerlink" title="3、通知（增强）"></a>3、通知（增强）</h3><p><strong>（1）实际增强的逻辑部分称为通知（增强）</strong></p>
+<p><strong>（2）通知有多种类型</strong></p>
+<ul>
+<li><p>前置通知</p>
+</li>
+<li><p>后置通知</p>
+</li>
+<li><p>环绕通知</p>
+</li>
+<li><p>异常通知</p>
+</li>
+<li><p>最终通知(finally)</p>
+</li>
+</ul>
+<h3 id="4、切面"><a href="#4、切面" class="headerlink" title="4、切面"></a>4、切面</h3><p><strong>是动作</strong></p>
+<p>​	<strong>通知应用到切入点的过程</strong></p>
+<h2 id="五、AOP操作准备"><a href="#五、AOP操作准备" class="headerlink" title="五、AOP操作准备"></a>五、AOP操作准备</h2><h3 id="1、Spring-框架一般都是基于-AspectJ-实现-AOP-操作"><a href="#1、Spring-框架一般都是基于-AspectJ-实现-AOP-操作" class="headerlink" title="1、Spring 框架一般都是基于 AspectJ 实现 AOP 操作"></a>1、Spring 框架一般都是基于 AspectJ 实现 AOP 操作</h3><p>​	（1）AspectJ 不是 Spring 组成部分，独立 AOP 框架，一般把 AspectJ 和 Spirng 框架一起使 用，进行 AOP 操作 </p>
+<h3 id="2、基于-AspectJ-实现-AOP-操作"><a href="#2、基于-AspectJ-实现-AOP-操作" class="headerlink" title="2、基于 AspectJ 实现 AOP 操作"></a>2、基于 AspectJ 实现 AOP 操作</h3><p>​	<strong>（1）基于 xml 配置文件实现</strong> </p>
+<p>​	<strong>（2）基于注解方式实现（使用）</strong> </p>
+<h3 id="3、在项目工程里面引入-AOP-相关依赖"><a href="#3、在项目工程里面引入-AOP-相关依赖" class="headerlink" title="3、在项目工程里面引入 AOP 相关依赖"></a>3、在项目工程里面引入 AOP 相关依赖</h3><p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220730214305917.png" alt="image-20220730214305917"></p>
+<h3 id="4、切入点表达式"><a href="#4、切入点表达式" class="headerlink" title="4、切入点表达式"></a>4、切入点表达式</h3><h3 id="（1）切入点表达式作用"><a href="#（1）切入点表达式作用" class="headerlink" title="（1）切入点表达式作用"></a>（1）切入点表达式作用</h3><p>知道对哪个类里面的哪个方法进行增强 </p>
+<h3 id="（2）语法结构"><a href="#（2）语法结构" class="headerlink" title="（2）语法结构"></a>（2）语法结构</h3><p> &#x3D;&#x3D;execution([权限修饰符] [返回类型] [类全路径] <a href="%5B%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%5D">方法名称</a> )&#x3D;&#x3D;</p>
+<p><strong>举例 1</strong>：对my.spring5.UserDao 类里面的 add 进行增强 execution(*my.spring5.UserDao.add(..))</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220730214805331.png" alt="image-20220730214805331"></p>
+<p><strong>举例 2</strong>：对my.spring5.UserDao 类里面的所有的方法进行增强 execution(* com.atguigu.dao.BookDao.* (..))</p>
+<p><strong>举例 3</strong>：对 com.atguigu 包里面所有类，类里面所有方法进行增强 execution(* my.spring5.* .*.(..))</p>
+<h3 id="5、AspectJ-注解"><a href="#5、AspectJ-注解" class="headerlink" title="5、AspectJ 注解"></a>5、AspectJ 注解</h3><h4 id="（1）创建类，在类里面定义方法"><a href="#（1）创建类，在类里面定义方法" class="headerlink" title="（1）创建类，在类里面定义方法"></a><strong>（1）创建类，在类里面定义方法</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">()</span> &#123;</span><br><span class="line"> System.out.println(<span class="string">&quot;add.......&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）创建增强类（编写增强逻辑）"><a href="#（2）创建增强类（编写增强逻辑）" class="headerlink" title="（2）创建增强类（编写增强逻辑）"></a><strong>（2）创建增强类（编写增强逻辑）</strong></h4><p>​	（1）在增强类里面，创建方法，让不同方法代表不同通知类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增强的类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserProxy</span> &#123;</span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">before</span><span class="params">()</span> &#123;<span class="comment">//前置通知</span></span><br><span class="line"> System.out.println(<span class="string">&quot;before......&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）进行通知的配置"><a href="#（3）进行通知的配置" class="headerlink" title="（3）进行通知的配置"></a>（3）进行通知的配置</h4><p>①在 spring 配置文件中，开启注解扫描</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:aop</span>=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans </span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/beans/spring-beans.xsd </span></span></span><br><span class="line"><span class="string"><span class="tag"> http://www.springframework.org/schema/context </span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/context/spring-context.xsd </span></span></span><br><span class="line"><span class="string"><span class="tag"> http://www.springframework.org/schema/aop </span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/aop/spring-aop.xsd&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"> <span class="comment">&lt;!-- 开启注解扫描 --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base</span><span class="attr">package</span>=<span class="string">&quot;com.atguigu.spring5.aopanno&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​	②使用注解创建 User 和 UserProxy 对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//被增强的类</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//增强的类</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserProxy</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>③在增强类上面添加注解 @Aspect</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增强的类</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span><span class="comment">//生成代理对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserProxy</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>④在 spring 配置文件中开启生成代理对象</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 开启 Aspect 生成代理对象--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:aspectj-autoproxy</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="（4）配置不同类型的通知"><a href="#（4）配置不同类型的通知" class="headerlink" title="（4）配置不同类型的通知"></a>（4）配置不同类型的通知</h4><p>①在增强类的里面，在作为通知方法上面添加通知类型注解，使用切入点表达式配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增强的类</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span> <span class="comment">//生成代理对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserProxy</span> &#123;</span><br><span class="line"> <span class="comment">//前置通知</span></span><br><span class="line"> <span class="comment">//@Before 注解表示作为前置通知</span></span><br><span class="line"> <span class="meta">@Before(value = &quot;execution(* com.atguigu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">before</span><span class="params">()</span> &#123;</span><br><span class="line"> System.out.println(<span class="string">&quot;before.........&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//后置通知（返回通知）</span></span><br><span class="line"> <span class="meta">@AfterReturning(value = &quot;execution(* </span></span><br><span class="line"><span class="meta">com.atguigu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterReturning</span><span class="params">()</span> &#123;</span><br><span class="line"> System.out.println(<span class="string">&quot;afterReturning.........&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//最终通知</span></span><br><span class="line"> <span class="meta">@After(value = &quot;execution(* com.atguigu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">after</span><span class="params">()</span> &#123;</span><br><span class="line"> System.out.println(<span class="string">&quot;after.........&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//异常通知</span></span><br><span class="line"> <span class="meta">@AfterThrowing(value = &quot;execution(* </span></span><br><span class="line"><span class="meta">com.atguigu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterThrowing</span><span class="params">()</span> &#123;</span><br><span class="line"> System.out.println(<span class="string">&quot;afterThrowing.........&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//环绕通知</span></span><br><span class="line"> <span class="meta">@Around(value = &quot;execution(* com.atguigu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">around</span><span class="params">(ProceedingJoinPoint proceedingJoinPoint)</span> <span class="keyword">throws</span> </span><br><span class="line">Throwable &#123;</span><br><span class="line"> System.out.println(<span class="string">&quot;环绕之前.........&quot;</span>);</span><br><span class="line"> <span class="comment">//被增强的方法执行</span></span><br><span class="line"> proceedingJoinPoint.proceed();</span><br><span class="line"> System.out.println(<span class="string">&quot;环绕之后.........&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="6、相同的切入点抽取"><a href="#6、相同的切入点抽取" class="headerlink" title="6、相同的切入点抽取"></a>6、相同的切入点抽取</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//相同切入点抽取</span></span><br><span class="line"><span class="meta">@Pointcut(value = &quot;execution(* com.atguigu.spring5.aopanno.User.add(..))&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pointdemo</span><span class="params">()</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//前置通知</span></span><br><span class="line"><span class="comment">//@Before 注解表示作为前置通知</span></span><br><span class="line"><span class="meta">@Before(value = &quot;pointdemo()&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">before</span><span class="params">()</span> &#123;</span><br><span class="line"> System.out.println(<span class="string">&quot;before.........&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="7、有多个增强类多同一个方法进行增强，设置增强类优先级"><a href="#7、有多个增强类多同一个方法进行增强，设置增强类优先级" class="headerlink" title="7、有多个增强类多同一个方法进行增强，设置增强类优先级"></a>7、有多个增强类多同一个方法进行增强，设置增强类优先级</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Order(1)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PersonProxy</span>()&#123;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="8、完全使用注解开发"><a href="#8、完全使用注解开发" class="headerlink" title="8、完全使用注解开发"></a>8、完全使用注解开发</h3><p>创建配置类，不需要创建 xml 配置文件 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan(basePackages = &#123;&quot;com.atguigu&quot;&#125;)</span></span><br><span class="line"><span class="meta">@EnableAspectJAutoProxy(proxyTargetClass = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConfigAop</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、AOP-操作（AspectJ-配置文件）"><a href="#六、AOP-操作（AspectJ-配置文件）" class="headerlink" title="六、AOP 操作（AspectJ 配置文件）"></a>六、AOP 操作（AspectJ 配置文件）</h2><p>1、创建两个类，增强类和被增强类，创建方法 </p>
+<p>2、在 spring 配置文件中创建两个类对象</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--创建对象--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;book&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.atguigu.spring5.aopxml.Book&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;bookProxy&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.atguigu.spring5.aopxml.BookProxy&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3、在 spring 配置文件中配置切入点</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置 aop 增强--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--切入点--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;execution(* </span></span></span><br><span class="line"><span class="string"><span class="tag">com.atguigu.spring5.aopxml.Book.buy(..))&quot;</span>/&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--配置切面--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">ref</span>=<span class="string">&quot;bookProxy&quot;</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--增强作用在具体的方法上--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">method</span>=<span class="string">&quot;before&quot;</span> <span class="attr">pointcut-ref</span>=<span class="string">&quot;p&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="七、JdbcTemplate-概念和准备）"><a href="#七、JdbcTemplate-概念和准备）" class="headerlink" title="七、JdbcTemplate(概念和准备）"></a>七、JdbcTemplate(概念和准备）</h2><h4 id="1、什么是-JdbcTemplate"><a href="#1、什么是-JdbcTemplate" class="headerlink" title="1、什么是 JdbcTemplate"></a>1、什么是 JdbcTemplate</h4><p>（1&#x3D;&#x3D;）Spring 框架对 JDBC 进行封装，使用 JdbcTemplate 方便实现对数据库操作&#x3D;&#x3D;</p>
+<h4 id="2、准备工作"><a href="#2、准备工作" class="headerlink" title="2、准备工作"></a>2、准备工作</h4><p>（1）引入相关 jar 包</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829201358974.png" alt="image-20220829201358974"></p>
+<p>（2）在 spring 配置文件配置数据库连接池</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 数据库连接池 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">destroy-method</span>=<span class="string">&quot;close&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;jdbc:mysql:///user_db&quot;</span> /&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span> /&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span> /&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>（3）配置 JdbcTemplate 对象，注入 DataSource</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- JdbcTemplate 对象 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;jdbcTemplate&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.jdbc.core.JdbcTemplate&quot;</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--注入 dataSource--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（4）创建 service 类，创建 dao 类，在 dao 注入 jdbcTemplate 对象</p>
+<p>* 配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 组件扫描 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.atguigu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>⚫ Service</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookService</span> &#123;</span><br><span class="line"> <span class="comment">//注入 dao</span></span><br><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"> <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>⚫ Dao</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookDaoImpl</span> <span class="keyword">implements</span> <span class="title class_">BookDao</span> &#123;</span><br><span class="line"> <span class="comment">//注入 JdbcTemplate</span></span><br><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"> <span class="keyword">private</span> JdbcTemplate jdbcTemplate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="八、JdbcTemplate-操作数据库（添加）"><a href="#八、JdbcTemplate-操作数据库（添加）" class="headerlink" title="八、JdbcTemplate 操作数据库（添加）"></a>八、JdbcTemplate 操作数据库（添加）</h2><p>1、对应数据库创建实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span>()&#123;</span><br><span class="line">	peivate String useId;</span><br><span class="line">	peivate String username;</span><br><span class="line">	peivate String ustatus;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUserId</span><span class="params">(String userId)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.userId=userId;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUsername</span><span class="params">(String username)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.Username=username;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUstatus</span><span class="params">(String ustatus)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.Ustatus=ustatus;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、编写 service 和 dao</p>
+<p>（1）在 dao 进行数据库添加操作 </p>
+<p>（2）调用 JdbcTemplate 对象里面 &#x3D;&#x3D;update&#x3D;&#x3D; 方法实现添加操作</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829202041150.png" alt="image-20220829202041150"></p>
+<p> <strong>有两个参数</strong></p>
+<p> ⚫ 第一个参数：sql 语句 ⚫ 第二个参数：可变参数，设置 sql 语句值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookDaoImpl</span> <span class="keyword">implements</span> <span class="title class_">BookDao</span> &#123;</span><br><span class="line"> <span class="comment">//注入 JdbcTemplate</span></span><br><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"> <span class="keyword">private</span> JdbcTemplate jdbcTemplate;</span><br><span class="line"> <span class="comment">//添加的方法</span></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(Book book)</span> &#123;</span><br><span class="line"> <span class="comment">//1 创建 sql 语句</span></span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;insert into t_book values(?,?,?)&quot;</span>;</span><br><span class="line"> <span class="comment">//2 调用方法实现</span></span><br><span class="line"> Object[] args = &#123;book.getUserId(), book.getUsername(), book.getUstatus()&#125;;</span><br><span class="line"> <span class="type">int</span> <span class="variable">update</span> <span class="operator">=</span> jdbcTemplate.update(sql,args);</span><br><span class="line"> System.out.println(update);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testJdbcTemplate</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="type">ApplicationContext</span> <span class="variable">context</span> <span class="operator">=</span></span><br><span class="line"> <span class="keyword">new</span> <span class="title class_">ClassPathXmlApplicationContext</span>(<span class="string">&quot;bean1.xml&quot;</span>);</span><br><span class="line"> <span class="type">BookService</span> <span class="variable">bookService</span> <span class="operator">=</span> context.getBean(<span class="string">&quot;bookService&quot;</span>, </span><br><span class="line">BookService.class);</span><br><span class="line"> <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line"> book.setUserId(<span class="string">&quot;1&quot;</span>);</span><br><span class="line"> book.setUsername(<span class="string">&quot;java&quot;</span>);</span><br><span class="line"> book.setUstatus(<span class="string">&quot;a&quot;</span>);</span><br><span class="line"> bookService.addBook(book);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="九、JdbcTemplate-操作数据库（修改和删除）"><a href="#九、JdbcTemplate-操作数据库（修改和删除）" class="headerlink" title="九、JdbcTemplate 操作数据库（修改和删除）"></a>九、JdbcTemplate 操作数据库（修改和删除）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、修改</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateBook</span><span class="params">(Book book)</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;update t_book set username=?,ustatus=? where user_id=?&quot;</span>;</span><br><span class="line"> Object[] args = &#123;book.getUsername(), book.getUstatus(),book.getUserId()&#125;;</span><br><span class="line"> <span class="type">int</span> <span class="variable">update</span> <span class="operator">=</span> jdbcTemplate.update(sql, args);</span><br><span class="line"> System.out.println(update);</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">2</span>、删除</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">delete</span><span class="params">(String id)</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;delete from t_book where user_id=?&quot;</span>;</span><br><span class="line"> <span class="type">int</span> <span class="variable">update</span> <span class="operator">=</span> jdbcTemplate.update(sql, id);</span><br><span class="line"> System.out.println(update);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十、JdbcTemplate-操作数据库（查询返回某个值）"><a href="#十、JdbcTemplate-操作数据库（查询返回某个值）" class="headerlink" title="十、JdbcTemplate 操作数据库（查询返回某个值）"></a>十、JdbcTemplate 操作数据库（查询返回某个值）</h2><p>1、查询表里面有多少条记录，返回是某个值 </p>
+<p>2、使用 JdbcTemplate 实现&#x3D;&#x3D;queryForObject&#x3D;&#x3D;查询返回某个值代码</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829202336325.png" alt="image-20220829202336325"></p>
+<p>⚫ <strong>有两个参数</strong> </p>
+<p> ⚫ 第一个参数：sql 语句 ⚫ 第二个参数：返回类型 Class</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询表记录数</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">selectCount</span><span class="params">()</span> &#123;</span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select count(*) from t_book&quot;</span>;</span><br><span class="line"> <span class="type">Integer</span> <span class="variable">count</span> <span class="operator">=</span> jdbcTemplate.queryForObject(sql, Integer.class);</span><br><span class="line"> <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十一、JdbcTemplate-操作数据库（查询返回对象）"><a href="#十一、JdbcTemplate-操作数据库（查询返回对象）" class="headerlink" title="十一、JdbcTemplate 操作数据库（查询返回对象）"></a>十一、JdbcTemplate 操作数据库（查询返回对象）</h2><p>1、场景：查询图书详情</p>
+<p> 2、JdbcTemplate 实现查询返回对象</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829202540136.png" alt="image-20220829202540136"></p>
+<p>⚫ <strong>有三个参数</strong></p>
+<p>  ⚫ 第一个参数：sql 语句 ⚫ 第二个参数：RowMapper 是接口，针对返回不同类型数据，使用这个接口里面实现类完成 数据封装 ⚫ 第三个参数：sql 语句值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询返回对象</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Book <span class="title function_">findBookInfo</span><span class="params">(String id)</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from t_book where user_id=?&quot;</span>;</span><br><span class="line"> <span class="comment">//调用方法</span></span><br><span class="line"> <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> <span class="title class_">BeanPropertyRowMapper</span>&lt;Book&gt;(Book.class), id);</span><br><span class="line"> <span class="keyword">return</span> book;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//查询返回集合</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> List&lt;Book&gt; <span class="title function_">findAllBook</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from t_book&quot;</span>;</span><br><span class="line"> <span class="comment">//调用方法</span></span><br><span class="line"> List&lt;Book&gt; bookList = jdbcTemplate.query(sql, <span class="keyword">new</span> </span><br><span class="line"><span class="title class_">BeanPropertyRowMapper</span>&lt;Book&gt;(Book.class));</span><br><span class="line"> <span class="keyword">return</span> bookList;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="十二、JdbcTemplate-操作数据库（批量操作）"><a href="#十二、JdbcTemplate-操作数据库（批量操作）" class="headerlink" title="十二、JdbcTemplate 操作数据库（批量操作）"></a>十二、JdbcTemplate 操作数据库（批量操作）</h2><p>1、批量操作：操作表里面多条记录 </p>
+<p>2、JdbcTemplate 实现批量添加操作</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829202812160.png" alt="image-20220829202812160"></p>
+<p>⚫ <strong>有两个参数</strong></p>
+<p>  ⚫ 第一个参数：sql 语句 ⚫ 第二个参数：List 集合，添加多条记录数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//批量添加</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">batchAddBook</span><span class="params">(List&lt;Object[]&gt; batchArgs)</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;insert into t_book values(?,?,?)&quot;</span>;</span><br><span class="line"> <span class="type">int</span>[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);</span><br><span class="line"> System.out.println(Arrays.toString(ints));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//批量添加测试</span></span><br><span class="line">List&lt;Object[]&gt; batchArgs = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">Object[] o1 = &#123;<span class="string">&quot;3&quot;</span>,<span class="string">&quot;java&quot;</span>,<span class="string">&quot;a&quot;</span>&#125;;</span><br><span class="line">Object[] o2 = &#123;<span class="string">&quot;4&quot;</span>,<span class="string">&quot;c++&quot;</span>,<span class="string">&quot;b&quot;</span>&#125;;</span><br><span class="line">Object[] o3 = &#123;<span class="string">&quot;5&quot;</span>,<span class="string">&quot;MySQL&quot;</span>,<span class="string">&quot;c&quot;</span>&#125;;</span><br><span class="line">batchArgs.add(o1);</span><br><span class="line">batchArgs.add(o2);</span><br><span class="line">batchArgs.add(o3);</span><br><span class="line"><span class="comment">//调用批量添加</span></span><br><span class="line">bookService.batchAdd(batchArgs);</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、JdbcTemplate 实现批量修改操作</span><br><span class="line"><span class="comment">//批量修改</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">batchUpdateBook</span><span class="params">(List&lt;Object[]&gt; batchArgs)</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;update t_book set username=?,ustatus=? where user_id=?&quot;</span>;</span><br><span class="line"> <span class="type">int</span>[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);</span><br><span class="line"> System.out.println(Arrays.toString(ints));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//批量修改</span></span><br><span class="line">List&lt;Object[]&gt; batchArgs = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">Object[] o1 = &#123;<span class="string">&quot;java0909&quot;</span>,<span class="string">&quot;a3&quot;</span>,<span class="string">&quot;3&quot;</span>&#125;;</span><br><span class="line">Object[] o2 = &#123;<span class="string">&quot;c++1010&quot;</span>,<span class="string">&quot;b4&quot;</span>,<span class="string">&quot;4&quot;</span>&#125;;</span><br><span class="line">Object[] o3 = &#123;<span class="string">&quot;MySQL1111&quot;</span>,<span class="string">&quot;c5&quot;</span>,<span class="string">&quot;5&quot;</span>&#125;;</span><br><span class="line">batchArgs.add(o1);</span><br><span class="line">batchArgs.add(o2);</span><br><span class="line">batchArgs.add(o3);</span><br><span class="line"><span class="comment">//调用方法实现批量修改</span></span><br><span class="line">bookService.batchUpdate(batchArgs);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、JdbcTemplate 实现批量删除操作</span><br><span class="line"><span class="comment">//批量删除</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">batchDeleteBook</span><span class="params">(List&lt;Object[]&gt; batchArgs)</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;delete from t_book where user_id=?&quot;</span>;</span><br><span class="line"> <span class="type">int</span>[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);</span><br><span class="line"> System.out.println(Arrays.toString(ints));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//批量删除</span></span><br><span class="line">List&lt;Object[]&gt; batchArgs = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">Object[] o1 = &#123;<span class="string">&quot;3&quot;</span>&#125;;</span><br><span class="line">Object[] o2 = &#123;<span class="string">&quot;4&quot;</span>&#125;;</span><br><span class="line">batchArgs.add(o1);</span><br><span class="line">batchArgs.add(o2);</span><br><span class="line"><span class="comment">//调用方法实现批量删除</span></span><br><span class="line">bookService.batchDelete(batchArgs);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="十三、事务操作（事务概念）"><a href="#十三、事务操作（事务概念）" class="headerlink" title="十三、事务操作（事务概念）"></a>十三、事务操作（事务概念）</h2><h3 id="1、什么事务"><a href="#1、什么事务" class="headerlink" title="1、什么事务"></a>1、什么事务</h3><p>（1）事务是数据库操作最基本单元，逻辑上一组操作，要么都成功，如果有一个失败所有操 作都失败 </p>
+<p>（2）典型场景：银行转账 </p>
+<ul>
+<li>lucy 转账 100 元 给 mary </li>
+<li>lucy 少 100，mary 多 100</li>
+</ul>
+<h3 id="2、事务四个特性（ACID）"><a href="#2、事务四个特性（ACID）" class="headerlink" title="2、事务四个特性（ACID）"></a>2、事务四个特性（ACID）</h3><p>（1）原子性 （2）一致性 （3）隔离性 （4）持久性</p>
+<h2 id="十四、事务操作（搭建事务操作环境）"><a href="#十四、事务操作（搭建事务操作环境）" class="headerlink" title="十四、事务操作（搭建事务操作环境）"></a>十四、事务操作（搭建事务操作环境）</h2><p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829203159379.png" alt="image-20220829203159379"></p>
+<p><strong>1、创建数据库表，添加记录</strong></p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829203244091.png" alt="image-20220829203244091"></p>
+<p><strong>2、创建 service，搭建 dao，完成对象创建和注入关系</strong> </p>
+<p>（1）service 注入 dao，在 dao 注入 JdbcTemplate，在 JdbcTemplate 注入 DataSource</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line"> <span class="comment">//注入 dao</span></span><br><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"> <span class="keyword">private</span> UserDao userDao;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title class_">UserDao</span> &#123;</span><br><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> JdbcTemplate jdbcTemplate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>3、在 dao 创建两个方法：多钱和少钱的方法，在 service 创建方法（转账的方法）</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title class_">UserDao</span> &#123;</span><br><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"> <span class="keyword">private</span> JdbcTemplate jdbcTemplate;</span><br><span class="line"> <span class="comment">//lucy 转账 100 给 mary</span></span><br><span class="line"> <span class="comment">//少钱</span></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reduceMoney</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;update t_account set money=money-? where username=?&quot;</span>;</span><br><span class="line"> jdbcTemplate.update(sql,<span class="number">100</span>,<span class="string">&quot;lucy&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//多钱</span></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addMoney</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;update t_account set money=money+? where username=?&quot;</span>;</span><br><span class="line"> jdbcTemplate.update(sql,<span class="number">100</span>,<span class="string">&quot;mary&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line"> <span class="comment">//注入 dao</span></span><br><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"> <span class="keyword">private</span> UserDao userDao;</span><br><span class="line"> <span class="comment">//转账的方法</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accountMoney</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="comment">//lucy 少 100</span></span><br><span class="line"> userDao.reduceMoney();</span><br><span class="line"> <span class="comment">//mary 多 100</span></span><br><span class="line"> userDao.addMoney();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>4、上面代码，如果正常执行没有问题的，但是如果代码执行过程中出现异常，有问题</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//转账的方法</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accountMoney</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="comment">//lucy 少 100</span></span><br><span class="line"> userDao.reduceMoney();</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//模拟异常</span></span><br><span class="line"> <span class="type">int</span> i=<span class="number">10</span>/<span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//mary 多 100</span></span><br><span class="line"> userDao.addMoney();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>（1）上面问题如何解决呢？</p>
+<p> &#x3D;&#x3D;* 使用事务进行解决&#x3D;&#x3D;</p>
+<p>（2）事务操作过程</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829203705347.png" alt="image-20220829203705347"></p>
+<h2 id="十五、事务操作（Spring-事务管理介绍）"><a href="#十五、事务操作（Spring-事务管理介绍）" class="headerlink" title="十五、事务操作（Spring 事务管理介绍）"></a>十五、事务操作（Spring 事务管理介绍）</h2><p>1、事务添加到 JavaEE 三层结构里面 Service 层（业务逻辑层） </p>
+<p>2、在 Spring 进行事务管理操作 </p>
+<p>​	（1）有两种方式：编程式事务管理和声明式事务管理（使用）</p>
+<p> 3、声明式事务管理 </p>
+<p>​	（1）基于注解方式（使用） </p>
+<p>​	（2）基于 xml 配置文件方式 </p>
+<p>4、在 Spring 进行声明式事务管理，底层使用 AOP 原理 </p>
+<p>5、Spring 事务管理 API</p>
+<p>（1）提供一个接口，代表事务管理器，这个接口针对不同的框架提供不同的实现类</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829203854813.png" alt="image-20220829203854813"></p>
+<h2 id="十六、事务操作（注解声明式事务管理）"><a href="#十六、事务操作（注解声明式事务管理）" class="headerlink" title="十六、事务操作（注解声明式事务管理）"></a>十六、事务操作（注解声明式事务管理）</h2><h4 id="1、在-spring-配置文件配置事务管理器"><a href="#1、在-spring-配置文件配置事务管理器" class="headerlink" title="1、在 spring 配置文件配置事务管理器"></a>1、在 spring 配置文件配置事务管理器</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--创建事务管理器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transactionManager&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">class</span>=<span class="string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--注入数据源--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、在-spring-配置文件，开启事务注解"><a href="#2、在-spring-配置文件，开启事务注解" class="headerlink" title="2、在 spring 配置文件，开启事务注解"></a>2、在 spring 配置文件，开启事务注解</h4><p>（1）在 spring 配置文件引入名称空间 tx</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:aop</span>=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xmlns:tx</span>=<span class="string">&quot;http://www.springframework.org/schema/tx&quot;</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans </span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/beans/spring-beans.xsd </span></span></span><br><span class="line"><span class="string"><span class="tag"> 		http://www.springframework.org/schema/context </span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/context/spring-context.xsd </span></span></span><br><span class="line"><span class="string"><span class="tag"> 		http://www.springframework.org/schema/aop </span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/aop/spring-aop.xsdhttp://www.springframework.org/schema/tx </span></span></span><br><span class="line"><span class="string"><span class="tag">		http://www.springframework.org/schema/tx/spring-tx.xsd&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）开启事务注解</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开启事务注解--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction</span><span class="attr">manager</span>=<span class="string">&quot;transactionManager&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">tx:annotation-driven</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3、在 service 类上面（或者 service 类里面方法上面）添加事务注解 </p>
+<p>（1）@Transactional，这个注解添加到类上面，也可以添加方法上面 </p>
+<p>（2）如果把这个注解添加类上面，这个类里面所有的方法都添加事务 </p>
+<p>（3）如果把这个注解添加方法上面，为这个方法添加事务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十七、事务操作（声明式事务管理参数配置）"><a href="#十七、事务操作（声明式事务管理参数配置）" class="headerlink" title="十七、事务操作（声明式事务管理参数配置）"></a>十七、事务操作（声明式事务管理参数配置）</h2><p>1、在 service 类上面添加注解&#x3D;&#x3D;@Transactional&#x3D;&#x3D;，在这个注解里面可以配置事务相关参数</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829204939576.png" alt="image-20220829204939576"></p>
+<p>2、propagation：事务传播行为 </p>
+<p>（1）多事务方法直接进行调用，这个过程中事务 是如何进行管理的</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829205016368.png" alt="image-20220829205016368"></p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829205032432.png" alt="image-20220829205032432"></p>
+<p>3、ioslation：事务隔离级别</p>
+<p>（1）事务有特性成为隔离性，多事务操作之间不会产生影响。不考虑隔离性产生很多问题 </p>
+<p>（2）有三个读问题：脏读、不可重复读、虚（幻）读 </p>
+<p><strong>（3）&#x3D;&#x3D;脏读&#x3D;&#x3D;：一个未提交事务读取到另一个未提交事务的数据</strong></p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829205136601.png" alt="image-20220829205136601"></p>
+<p><strong>（4）&#x3D;&#x3D;不可重复读&#x3D;&#x3D;：一个未提交事务读取到另一提交事务修改数据</strong></p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829205228460.png" alt="image-20220829205228460"></p>
+<p>（5）&#x3D;&#x3D;虚读&#x3D;&#x3D;：一个未提交事务读取到另一提交事务添加数据 </p>
+<p>（6）解决：通过设置事务隔离级别，解决读问题</p>
+<p><img src="/../imgs/Spring5(%E4%BA%8C)/image-20220829205307786.png" alt="image-20220829205307786"></p>
+<p>4、timeout：超时时间 </p>
+<p>（1）事务需要在一定时间内进行提交，如果不提交进行回滚 </p>
+<p>（2）默认值是 -1 ，设置时间以秒单位进行计算 </p>
+<p>5、readOnly：是否只读 </p>
+<p>（1）读：查询操作，写：添加修改删除操作 </p>
+<p>（2）readOnly 默认值 false，表示可以查询，可以添加修改删除操作 </p>
+<p>（3）设置 readOnly 值是 true，设置成 true 之后，只能查询 </p>
+<p>6、rollbackFor：回滚 </p>
+<p> （1）设置出现哪些异常进行事务回滚 </p>
+<p>7、noRollbackFor：不回滚 </p>
+<p>（1）设置出现哪些异常不进行事务回滚</p>
+<h2 id="十八、事务操作（XML-声明式事务管理）"><a href="#十八、事务操作（XML-声明式事务管理）" class="headerlink" title="十八、事务操作（XML 声明式事务管理）"></a>十八、事务操作（XML 声明式事务管理）</h2><p>1、在 spring 配置文件中进行配置 </p>
+<p>  第一步 配置事务管理器 </p>
+<p>  第二步 配置通知</p>
+<p>  第三步 配置切入点和切面</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--1 创建事务管理器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transactionManager&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">class</span>=<span class="string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--注入数据源--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--2 配置通知--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">&quot;txadvice&quot;</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--配置事务参数--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--指定哪种规则的方法上面添加事务--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;accountMoney&quot;</span> <span class="attr">propagation</span>=<span class="string">&quot;REQUIRED&quot;</span>/&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--&lt;tx:method name=&quot;account*&quot;/&gt;--&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--3 配置切入点和切面--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--配置切入点--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">&quot;pt&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;execution(* </span></span></span><br><span class="line"><span class="string"><span class="tag">com.atguigu.spring5.service.UserService.*(..))&quot;</span>/&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--配置切面--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">&quot;txadvice&quot;</span> <span class="attr">pointcut-ref</span>=<span class="string">&quot;pt&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="十九、事务操作（完全注解声明式事务管理）"><a href="#十九、事务操作（完全注解声明式事务管理）" class="headerlink" title="十九、事务操作（完全注解声明式事务管理）"></a>十九、事务操作（完全注解声明式事务管理）</h2><p>1、创建配置类，使用配置类替代 xml 配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span> <span class="comment">//配置类</span></span><br><span class="line"><span class="meta">@ComponentScan(basePackages = &quot;com.atguigu&quot;)</span> <span class="comment">//组件扫描</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span> <span class="comment">//开启事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TxConfig</span> &#123;</span><br><span class="line"> <span class="comment">//创建数据库连接池</span></span><br><span class="line"> <span class="meta">@Bean</span></span><br><span class="line"> <span class="keyword">public</span> DruidDataSource <span class="title function_">getDruidDataSource</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="type">DruidDataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DruidDataSource</span>();</span><br><span class="line"> dataSource.setDriverClassName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line"> dataSource.setUrl(<span class="string">&quot;jdbc:mysql:///user_db&quot;</span>);</span><br><span class="line"> dataSource.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line"> dataSource.setPassword(<span class="string">&quot;root&quot;</span>);</span><br><span class="line"> <span class="keyword">return</span> dataSource;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//创建 JdbcTemplate 对象</span></span><br><span class="line"> <span class="meta">@Bean</span></span><br><span class="line"> <span class="keyword">public</span> JdbcTemplate <span class="title function_">getJdbcTemplate</span><span class="params">(DataSource dataSource)</span> &#123;</span><br><span class="line"> <span class="comment">//到 ioc 容器中根据类型找到 dataSource</span></span><br><span class="line"> <span class="type">JdbcTemplate</span> <span class="variable">jdbcTemplate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JdbcTemplate</span>();</span><br><span class="line"> <span class="comment">//注入 dataSource</span></span><br><span class="line"> jdbcTemplate.setDataSource(dataSource);</span><br><span class="line"><span class="keyword">return</span> jdbcTemplate;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//创建事务管理器</span></span><br><span class="line"> <span class="meta">@Bean</span></span><br><span class="line"> <span class="keyword">public</span> DataSourceTransactionManager </span><br><span class="line"><span class="title function_">getDataSourceTransactionManager</span><span class="params">(DataSource dataSource)</span> &#123;</span><br><span class="line"> <span class="type">DataSourceTransactionManager</span> <span class="variable">transactionManager</span> <span class="operator">=</span> <span class="keyword">new</span> </span><br><span class="line"><span class="title class_">DataSourceTransactionManager</span>();</span><br><span class="line"> transactionManager.setDataSource(dataSource);</span><br><span class="line"> <span class="keyword">return</span> transactionManager;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Boy阁阁</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/post/a648ae81.html">http://example.com/post/a648ae81.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Boy阁阁</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/spring/">
+                                    <span class="chip bg-color">spring</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/post/a648ae81.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Spring5(二)">
+                        
+                        <span class="card-title">Spring5(二)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Spring5/" class="post-category">
+                                    Spring5
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/5ef9f770.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Spring5（一）">
+                        
+                        <span class="card-title">Spring5（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Spring5/" class="post-category">
+                                    Spring5
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">Boy阁阁</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">23.5k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/BoyGEIGEI" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:mailto:1283181243@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1283181243" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1283181243" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+	
+	<script type="text/javascript">
+//只在桌面版网页启用特效
+var windowWidth = $(window).width();
+if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+
+</body>
+
+</html>
